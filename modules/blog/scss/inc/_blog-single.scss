@@ -1,0 +1,62 @@
+/*
+*	Blog Single
+*
+*	Styles for blog single
+*
+*	@package Blog
+*	@version 1.0
+*/
+
+.blog__single { padding-right:40px; display: flex; justify-content: space-between;
+
+	@include breakpoint(brotherbear) { flex-direction: column; padding-right: 0;}
+	
+	.max__width { padding: 0;}
+
+	article { width: 70%; padding-top: 30px;
+        @include breakpoint(brotherbear) { width: 100%;}
+
+        h1 { font-size:34px; font-weight:200; line-height:44px; padding-bottom:29px; color:$primary;
+            span { display: block; font-size: 20px; color: $text; margin-top: 10px;
+                i { margin-right: 10px;}
+            }
+        }
+
+        .blog__featured__image { min-height: 320px; background-size: cover; background-repeat: no-repeat; background-position: center; margin-bottom: 20px;}
+
+		/*h1 { font-size:40px; font-weight:200; line-height:44px; padding-bottom:29px; color:$primary;}
+		h2 { font-size:36px; font-weight:200; line-height:42px; padding-bottom:29px; color:$primary;}
+		h3 { font-size:32px; font-weight:300; line-height:40px; padding-bottom:29px; color:$primary;}
+		h4 { font-size:28px; font-weight:300; line-height:36px; padding-bottom:29px; color:$primary;}
+		h5 { font-size:24px; font-weight:300; line-height:32px; padding-bottom:29px; color:$primary;}
+		h6 { font-size:20px; font-weight:300; line-height:28px; padding-bottom:29px; color:$primary;}
+
+		h1 a,
+		h2 a,
+		h3 a,
+		h4 a,
+		h5 a,
+		h6 a { color:$primary;}
+
+		p { line-height:26px; color:$text; font-size:18px;
+
+			&:last-child { margin-bottom:0; padding-bottom:0;}
+
+			a { color:$secondary; font-weight:500;}
+		}
+
+		ul { margin:0 0 24px 30px;
+			li { list-style:disc; padding-bottom:15px; line-height:22px; color:$text;
+				a { color:$primary;}
+			}
+		}
+
+		ol { margin:0 0 24px 30px;
+			li { list-style:disc; padding-bottom:15px; line-height:22px; color:$text;
+				a { color:$primary;}
+			}
+		}*/
+
+
+	}
+}

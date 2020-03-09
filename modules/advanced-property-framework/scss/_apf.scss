@@ -1,0 +1,47 @@
+/*
+*	Advanced Property Framework
+*/
+
+@import '../../../scss/inc/vars';
+@import '../../../scss/inc/mixins';
+@import 'inc/apf-font-icons';
+@import 'inc/apf-search-form';
+@import 'inc/apf-search-results-combined';
+@import 'inc/apf-pagination';
+@import 'inc/apf-single-property';
+@import 'inc/apf-book-viewing-form';
+@import 'inc/apf-book-viewing-thanks';
+
+@import '../apps/apf-branches/scss/apf-branches';
+@import '../apps/apf-update/scss/apf-update';
+
+// Globals
+body {
+    &.apf__single {
+        header.header { background: $primary; padding-bottom: 10px;}
+    }
+
+    &.apf__property__search {
+        header.header { 
+            .header__main { 
+                .max__width { max-width: 100%;}
+            }
+        }
+
+        .banners {
+            .banner { padding: 88px 0 20px; min-height: 225px;
+                .max__width { max-width: 100%;}
+            }
+        }
+    }
+}
+
+.apf__status__red { background:#f65555;}
+.apf__status__amber { background:#f6bc55;}
+
+section.banners {
+    &.apf__banner__results,
+    &.apf__banner__single { height: 10vh; min-height: 100px;
+        .banner { height: 10vh; min-height: 100px;}
+    }
+}

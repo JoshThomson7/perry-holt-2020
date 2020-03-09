@@ -1,0 +1,50 @@
+/**
+
+ * CSS3 Animations
+ *
+*/
+
+/**
+ * Fade
+*/
+
+// fadeInUp
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translate3d(0, 10%, 0);}
+    to { opacity: 1; transform: none;}
+}
+
+// fadeOutUp
+@keyframes fadeOutUp {
+    from { opacity: 1; transform: translate3d(0, 10%, 0);}
+    to { opacity: 0; transform: none;}
+}
+
+// fadeInDown
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translate3d(0, -25%, 0);}
+    to { opacity: 1; transform: none;}
+}
+
+// fadeOutDown
+@keyframes fadeOutDown {
+    from { opacity: 1; transform: translate3d(0, -25%, 0);}
+    to { opacity: 0; transform: none;}
+}
+
+// right
+@keyframes fadeInRight {
+    from { opacity: .2;transform: translate3d(8%, 0, 0);}
+    to { opacity: 1;transform: none}
+}
+
+// left
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translate3d(-8%, 0, 0);}
+    to { opacity: 1;transform: none;}
+}
+
+@keyframes zoomScale {
+    0% {transform:scale(1.2) rotate(.02deg)}
+    to {transform:scale(1) rotate(.02deg)}
+}

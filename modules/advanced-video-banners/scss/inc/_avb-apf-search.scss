@@ -1,0 +1,75 @@
+/**
+ * AVB APF Search
+ *
+ * @package advanced-video-banners/
+ * @version 1.0
+*/
+
+.avb__apf__search { position: absolute; z-index: 5; width: 100%; bottom: 20px;
+    @include breakpoint(brotherbear) { display: block; position: static; padding: 10px 0 20px; background: #fff;}
+
+    h4 { font-size: 20px; color: #fff; font-weight: 700; padding-left: 5px;}
+
+    .apf__search__buyrent {
+
+        a { color: #fff; background: rgba(white, 0.2);
+
+            &:hover { background: #fff; color: $text;}
+            &.checked { background: $secondary; color: $primary;}
+
+            @include breakpoint(brotherbear) { color:$primary; background: $lightgrey;}
+
+        }
+
+    }
+
+    .apf__search { display: block; padding-top: 30px;
+        .apf__area__search { background: rgba(white, 0.2); color: #fff;
+            &::-webkit-input-placeholder { color: #fff; transition: all .4s ease;}
+            &::-moz-placeholder { color: #fff; transition: all .4s ease;}
+            &:-ms-input-placeholder { color: #fff; transition: all .4s ease;}
+            &:-moz-placeholder { color: #fff; transition: all .4s ease;}
+
+            &:focus {
+                &::-webkit-input-placeholder { color: rgba(#fff, 0.4); transition: all .4s ease;}
+                &::-moz-placeholder { color: rgba(#fff, 0.4); transition: all .4s ease;}
+                &:-ms-input-placeholder { color: rgba(#fff, 0.4); transition: all .4s ease;}
+                &:-moz-placeholder { color: rgba(#fff, 0.4); transition: all .4s ease;}
+            }
+
+            @include breakpoint(brotherbear) { background:$lightgrey; color:$text;
+                &::-webkit-input-placeholder { color: $text; transition: all .4s ease;}
+                &::-moz-placeholder { color: $text; transition: all .4s ease;}
+                &:-ms-input-placeholder { color: $text; transition: all .4s ease;}
+                &:-moz-placeholder { color: $text; transition: all .4s ease;}
+
+                &:focus {
+                    &::-webkit-input-placeholder { color: rgba($text, 0.4); transition: all .4s ease;}
+                    &::-moz-placeholder { color: rgba($text, 0.4); transition: all .4s ease;}
+                    &:-ms-input-placeholder { color: rgba($text, 0.4); transition: all .4s ease;}
+                    &:-moz-placeholder { color: rgba($text, 0.4); transition: all .4s ease;}
+                }
+            }
+        }
+
+        .apf__search__selects { 
+            .apf__select__wrap { background: rgba(white, 0.2);
+                @include breakpoint(brotherbear) { background:$lightgrey;}
+
+                .apf__select { color: #fff;
+                    @include breakpoint(brotherbear) { color: $text;}
+                }
+
+                span { color: #fff;
+                    @include breakpoint(brotherbear) { color: $text;}
+                }
+            }
+        }
+    }
+
+    .apf__search__button { background: $secondary; color: $primary;
+        @include breakpoint(mamabear) { max-width: 100%; padding: 15px 20px;}
+
+        &:hover { background: lighten($secondary, 5%);}
+    }
+}
