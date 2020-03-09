@@ -15,7 +15,7 @@
         a { color: #fff; background: rgba(white, 0.2);
 
             &:hover { background: #fff; color: $text;}
-            &.checked { background: $secondary; color: $primary;}
+            &.checked { background: $secondary; color: $lightgrey;}
 
             @include breakpoint(brotherbear) { color:$primary; background: $lightgrey;}
 
@@ -67,7 +67,7 @@
         }
     }
 
-    .apf__search__button { background: $secondary; color: $primary;
+    .apf__search__button { background: $secondary; color: $lightgrey;
         @include breakpoint(mamabear) { max-width: 100%; padding: 15px 20px;}
 
         &:hover { background: lighten($secondary, 5%);}

@@ -1,13 +1,3 @@
-    <div class="flexible__content">
-        <section class="fc_carousel_images grey">
-            <div class="max__width" style="padding: 30px 0;">
-                <?php
-                    $is_option = true;
-                    include(get_stylesheet_directory().'/modules/flexible-content/templates/fc-carousel.php');
-                ?>
-            </div><!-- max__width -->
-        </section>
-    </div><!-- flexible__content -->
 
     <footer role="contentinfo">
         <div class="max__width">
