@@ -61,10 +61,20 @@ if(have_rows('fc_content_types')):
             // Feature Boxes
             require('templates/fc-feature-boxes.php');
 
+        elseif(get_row_layout() === 'fc_feature_slider'):
+
+            // Feature Slider
+            require('templates/fc-feature-slider.php');
+
         elseif(get_row_layout() === 'fc_free_text'):
 
             // Free Text
             require('templates/fc-free-text.php');
+
+        elseif(get_row_layout() === 'fc_free_text_split'):
+
+            // Free Text Split
+            require('templates/fc-free-text-split.php');
 
         elseif(get_row_layout() === 'fc_gallery'):
 

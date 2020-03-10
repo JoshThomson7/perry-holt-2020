@@ -17,3 +17,4 @@ Flexible Content
 // @codekit-prepend "inc/_fc-accordion.js";
 // @codekit-prepend "inc/_fc-team.js";
 // @codekit-prepend "inc/_fc-masonry.js";
+// @codekit-prepend "inc/_fc-slick.js";

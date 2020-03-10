@@ -1,0 +1,78 @@
+/**
+ * AVB Banner Boxes
+ *
+ * @package advanced-video-banners/
+ * @version 1.0
+*/
+
+.banner__boxes { padding:50px calc((100vw - 1140px) / 2) 0 calc((100vw - 1140px) / 2); position: absolute; left:0; bottom:0; z-index: 10; display: flex; flex-direction: column; width: 100%; box-sizing: border-box;
+    @include breakpoint(brotherbear) { position: static; padding-top: 0;}
+    @include breakpoint(cousinbear) { padding-top: 0;}
+
+    .banner__boxes__wrapper { display: flex; width: 100%;
+
+        @include breakpoint(brotherbear) { flex-direction: column; order: 2;}
+
+        .banner__box { border: 1px rgba(255, 255, 255, 0.5) solid; max-width: percentage(1/3); width: 100%;
+            @include breakpoint(brotherbear) { order: 1; max-width: 100%;}
+
+            .banner__box__content { display: flex; flex-direction: column; background: none; text-align: center;
+                @include breakpoint(brotherbear) { border-bottom: 1px $lightgrey solid;}
+
+                .banner__box__icon { width: 80px; height: 80px; border-radius: 100%; background: $secondary; display: flex; justify-content: center; align-items: center; font-size: 50px; color: $primary; align-self: center; margin-bottom: 40px;}
+
+                h3 { color:#fff; font-size:22px; padding-bottom: 15px; text-transform: uppercase; margin: 0;
+                    @include breakpoint(brotherbear) { color: $secondary;}
+                }
+
+                h4 { color:#fff; font-size:18px; padding-bottom: 10px; margin:0 0 20px; line-height: 22px;
+                    @include breakpoint(brotherbear) { color: $secondary;}
+                }
+
+                a { background: $secondary; color: $lightgrey; border: none; padding: 10px 40px; text-align: center; align-self: center; text-transform: uppercase;
+                    &:hover { background: #fff; color: $secondary;}
+                }
+            }
+
+            &:first-of-type { border-right: 0; margin-right: 12px;
+                @include breakpoint(brotherbear) { margin: 0}
+
+                .banner__box__content { padding: 40px 30px 40px 25px;}
+            }
+
+            &:last-of-type { border-left: 0; margin-left: 12px;
+                @include breakpoint(brotherbear) { margin: 0}
+                .banner__box__content { padding: 40px 25px 40px 30px;}
+            }
+
+            &.main { transform:scale3d(1.07, 1.07, 1.07); background: rgba($secondary, 0.9); border: none;
+                @include breakpoint(brotherbear) { order: 0;}
+
+                .banner__box__content { position: relative; /*top:-50px;*/ padding:40px 40px 20px;
+                    @include breakpoint(brotherbear) { border-bottom: none; padding-bottom: 40px;}
+
+                    .banner__box__icon { width: 100px; height: 100px; background: $primary; font-size: 60px; color:#fff; }
+
+                    h3 { color: $lightgrey; font-size: 28px;}
+                    h4 { color: $lightgrey;}
+
+                    form { display: flex; flex-direction: column; align-items: center;
+                        input[type="text"] { background: #fff; padding: 10px 20px; text-align: center; color: $primary; font-size: 20px; margin-bottom:15px; border: none;}
+                        input[type="submit"] { background: $primary; color: #fff; border: none; padding: 10px 40px; text-align: center; align-self: center; text-transform: uppercase; transition: all .4s ease; border-radius: unset;
+                            &:hover { background: #fff; color: $primary; transition: all .4s ease;}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .apf__search { padding: 20px 0 10px; display: none;
+        @include breakpoint(cousinbear) { padding: 10px 0 20px; //display: block;
+        }
+
+        form { 
+            .apf__search__button { max-width: 100%; padding: 10px 20px 15px;}
+        }
+    }
+}

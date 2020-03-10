@@ -68,6 +68,8 @@ $overlay_style = get_field('home_banners_overlay_style');
             <?php $banner_counter++; endwhile; ?>
         </div><!-- #home_banners -->
 
-        <?php apf_search_form(true); ?>
+        <?php require_once('inc/avb-boxes.php'); ?>
+
+        <!--<?php apf_search_form(true); ?>-->
     </section><!-- banners -->
 <?php endif; ?>

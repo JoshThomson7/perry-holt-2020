@@ -15,8 +15,8 @@ section.banners { position: relative; overflow: hidden;
 
         &__width { display: flex; height: 100%; align-items: center; overflow: hidden; justify-content: space-between;}
 
-        &__caption { z-index: 4; display: flex; flex-direction: column; width: 40%; justify-content: center; box-sizing: border-box; visibility: visibile; opacity: 1; transition: all .4s ease; position: relative;
-            @include breakpoint(papabear) { width: 60%;}
+        &__caption { padding-bottom: 15%; z-index: 4; display: flex; flex-direction: column; width: 100%; justify-content: center; align-items:  center; box-sizing: border-box; text-align: center; visibility: visibile; opacity: 1; transition: all .4s ease; position: relative;
+            @include breakpoint(papabear) { width: 100%;}
             @include breakpoint(mamabear) { width: 100%; align-items: center;}
 
             &.off { visibility: hidden; opacity: 0; transition: all .4s ease;}
@@ -27,7 +27,7 @@ section.banners { position: relative; overflow: hidden;
             transform: translateZ(0) scale(1.0, 1.0);
             -webkit-transform: translateZ(0) scale(1.0, 1.0);
 
-            h2 { font-size: 48px; color: #fff; font-weight: 700; padding: 0 0 10px; line-height: 52px;
+            h2 { font-size: 38px; color: #fff; font-weight: 700; padding: 0 0 10px; line-height: 42px;
                 @include breakpoint(brotherbear) { font-size: 32px; line-height: 30px;}
                 @include breakpoint(mamabear) { text-align: center;}
             }
@@ -35,6 +35,8 @@ section.banners { position: relative; overflow: hidden;
             p { font-size: 18px; color: #fff; line-height: 30px; padding: 10px 40px 10px 0;
                 @include breakpoint(brotherbear) { font-size: 16px; line-height: 23px;}
                 @include breakpoint(mamabear) { text-align: center; padding-right: 0;}
+
+                &:after { content:""; display: block; width: 150px; height: 1px; background: $lightgrey; margin: 10px auto 0;}
             }
 
         }
@@ -82,6 +84,9 @@ section.banners { position: relative; overflow: hidden;
         /* Video */
         @import 'inc/avb-video';
     }
+
+    /* Home Banner Boxes */
+    @import 'inc/avb-boxes';
 
     /* Inner */
     @import 'inc/avb-inner';
