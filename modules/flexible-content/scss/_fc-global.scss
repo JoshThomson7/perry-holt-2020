@@ -34,7 +34,7 @@
 
     h2 { font-size: 34px; text-transform: none; color: $secondary; margin: 0; font-weight: 700; display: flex; flex-direction: column;
         &:before { content:""; display: block; width: 4px; max-height: 100px; background: $secondary; margin-right: 22px; display: none;}
-        &:after { content:""; display: block; width: 200px; height: 2px; background: $secondary; margin-right: 22px;}
+        &:after { content:""; display: block; width: 50%; height: 2px; background: $secondary; margin-right: 22px;}
     }
 
     p { margin: 15px 0 0; font-size: 16px; line-height: 28px; padding-left: 28px;

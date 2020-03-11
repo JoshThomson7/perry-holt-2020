@@ -1,12 +1,135 @@
 
 .fc_free_text_split_wrapper{
     display: flex;
+    justify-content: space-around;
 
-    // .left{
-    //     width: 50%;
-    // }
+    .left, .right{
+        padding: 0 20px;
 
-    // .right{
-    //     width: 50%
-    // }
+        form{
+            .gform_footer{
+                justify-content: center!important;
+
+                input[type=submit]{
+                    margin: 0 auto 10px;
+                    border: 2px solid $lightgrey;
+                    background: $secondary;
+                }
+            }
+        }
+    }
+
+    .left{
+        background: white;
+
+        form{
+
+            .gform_heading{
+                margin-bottom: 0!important;
+
+                h3{
+                    color: $primary;
+                }
+            }
+            
+            .gfield_label{
+                color: $primary!important;
+            }
+            
+            .gform_body{
+                margin: 0!important;
+
+                ul{
+                    li{
+                        padding: 0!important;
+                        
+                        input, textarea{
+                            width: 100%!important;
+                            margin: 10px 0!important;
+            
+                            &::placeholder {
+                                color: $primary;
+                                opacity: 1;
+                                padding-left: 10px;
+                              }
+                        }
+        
+                        input{
+                            height: 50px;
+                        }
+        
+                        textarea{
+                            height: 100px;
+                        }
+
+                    }
+                }
+            }
+
+            .gform_footer{
+                input[type=submit]{
+                    margin: 0 auto 10px;
+                    border: 2px solid $secondary;
+                    background: white;
+                    color: $secondary
+                }
+            }
+        }
+    }
+
+    .right{
+        background: $secondary;
+
+        form{
+            .gform_heading{
+                margin-bottom: 0!important;
+
+                h3{
+                    color: $lightgrey;
+                }
+            }
+
+            .gfield_label{
+                color: $lightgrey!important;
+            }
+
+            .gform_body{
+                margin: 0!important;
+
+                ul{
+                    li{
+                        padding: 0!important;
+
+                        input, textarea{
+                            width: 100%!important;
+                            margin: 10px 0!important;
+            
+                            &::placeholder {
+                                color: $primary;
+                                opacity: 1;
+                                padding-left: 10px;
+                              }
+                        }
+        
+                        input{
+                            height: 50px;
+                        }
+        
+                        textarea{
+                            height: 100px;
+                        }
+
+                    }
+                }
+            }
+
+            .gform_footer{
+                input[type=submit]{
+                    margin: 0 auto 10px;
+                    border: 2px solid $lightgrey;
+                    background: $secondary;
+                }
+            }
+        }
+    }
 }

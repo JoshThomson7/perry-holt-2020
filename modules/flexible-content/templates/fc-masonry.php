@@ -275,7 +275,7 @@ if(!$reuse_id) {
                         <div class="masonry__item <?php echo $row_layout; ?>">
                             <div class="masonry__item__wrapper">
                                 <a href="<?php echo $link['masonry_link_url']; ?>" title="<?php the_sub_field('ms_feature_tall_heading'); ?>" style="background-image:url(<?php echo $feat_tall_img['url']; ?>)"<?php echo $target; ?>>
-                                    <div class="feat__overlay" style="background-color:rgba(0,0,0, <?php the_sub_field('ms_feature_overlay_opacity'); ?>);">
+                                    <div class="feat__overlay" style="background-color:rgba(0, 47, 82, <?php the_sub_field('ms_feature_overlay_opacity'); ?>);">
                                         <h4><?php the_sub_field('ms_feature_sub_heading'); ?></h4>
                                         <h3><?php the_sub_field('ms_feature_heading'); ?></h3>
                                     </div><!-- feat__tall__content -->
