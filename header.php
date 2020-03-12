@@ -66,8 +66,14 @@
                             <?php endif; ?>
                         </div><!-- header__right__top -->
 
+                        <div class="empty-div"></div>
+
                         <nav class="header__nav">
                             <?php wp_nav_menu(array('menu' => 'Main Menu', 'container' => false)); ?>
+                        </nav>
+
+                        <nav class="header__nav">
+                            <?php wp_nav_menu(array('menu' => 'Contact Menu', 'container' => false)); ?>
                         </nav>
                     </div><!-- header__right -->
                 </div><!-- max__width -->

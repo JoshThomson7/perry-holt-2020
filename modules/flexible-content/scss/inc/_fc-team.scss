@@ -14,7 +14,7 @@ Team
 
     .team__wrap { display:flex; flex-wrap:wrap;
 
-        article { width:percentage(1/4); margin-bottom: 40px;
+        article { width:percentage(1/2); margin-bottom: 40px;
 
             @include breakpoint(mamabear) { width:percentage(1/2);}
 
@@ -28,7 +28,7 @@ Team
                         span.team-more { width:165px; background:#FFF; color:$text; padding:8px 20px;}
                     }
 
-                    span.team__more { padding:10px 0; color:$secondary; text-align:center; font-size: 22px; display:block; font-weight: 600;}
+                    span.team__more { padding:10px 0; color:$lightgrey; text-align:center; font-size: 22px; display:block; font-weight: 600;}
                 }
             }
 

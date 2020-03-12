@@ -22,16 +22,34 @@ if(get_sub_field('cta_parallax')) {
     $parallax = ' cta__parallax';
 }
 
+$alignment = '';
+if(get_sub_field('cta_alignment')) {
+    $alignment = 'cta__alignment';
+}
+
+$quotation_marks = 'style="display: none;"';
+if(get_sub_field('cta_quotation_marks')) {
+    $quotation_marks = 'style="display: initial;"';
+}
+
+$cta_italics = '';
+if(get_sub_field('cta_italics')) {
+    $cta_italics = 'style="font-style: italic;"';
+}
+
 // styles
 $styles = get_sub_field('fc_styles');
 $full_width = $styles['fc_full_width'] == true ? true : false;
 ?>
 
     <div class="cta__wrapper"<?php echo $bk_img; ?>>
-        <?php if($full_width): ?><div class="max__width"><?php endif; ?>
+        <?php if($full_width): ?><div class="max__width <?php echo $alignment?>"><?php endif; ?>
         <article>
+            <span <?php echo $quotation_marks ?>>
+                <i class="fa fa-quote-left"></i>
+            </span>
+            <p <?php echo $cta_italics?>><?php the_sub_field('cta_caption'); ?></p>
             <h2><?php the_sub_field('cta_heading'); echo $padding; ?></h2>
-            <p><?php the_sub_field('cta_caption'); ?></p>
         </article>
 
         <?php if(get_sub_field('cta_button_link')): ?>
