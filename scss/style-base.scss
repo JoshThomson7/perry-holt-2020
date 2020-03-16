@@ -474,9 +474,9 @@ footer { padding: 40px 0; position: relative; background: $secondary;
                     }
                 }
 
-                button { flex-grow: 1; background: $secondary; border: none; cursor: pointer; text-align: center; position: relative; border-radius:none; font-size: 16px; font-weight: 800; color: $lightgrey; padding: 4px 25px 0; font-family:$primaryFont; transition:all .3s ease; max-width: 165px; border-radius: 3px; height: 100%; text-transform: uppercase;
+                button { flex-grow: 1; background: $secondary; border: none; cursor: pointer; text-align: center; position: relative; border-radius:none; font-size: 16px; font-weight: 800; color: $lightgrey; padding: 4px 25px 0; font-family:$primaryFont; transition:all .3s ease; max-width: 165px; border-radius: 3px; height: 100%; text-transform: uppercase; border: 1px solid $lightgrey;
 
-                    &:hover { background:lighten($secondary, 3%); transition:all .3s ease;}
+                    &:hover { background:lighten($secondary, 5%); transition:all .3s ease;}
                     
                     @include breakpoint(brotherbear) { padding: 15px 20px; align-self: center;}
                     @include breakpoint(mamabear) { width: 100%; max-width: 100%;}
