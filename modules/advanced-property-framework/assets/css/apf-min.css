@@ -284,8 +284,8 @@
         .apf__search form .apf__search__buyrent a:hover {
           background: #e5edef; }
         .apf__search form .apf__search__buyrent a.checked {
-          background: #c2d217;
-          color: #555759; }
+          background: #002f52;
+          color: #f5f8f9; }
         .apf__search form .apf__search__buyrent a:first-of-type {
           border-radius: 3px 0 0 3px; }
         .apf__search form .apf__search__buyrent a:last-child {
@@ -428,14 +428,14 @@
       -webkit-flex-grow: 1;
           -ms-flex-positive: 1;
               flex-grow: 1;
-      background: #c2d217;
+      background: #002f52;
       border: none;
       cursor: pointer;
       text-align: center;
       position: relative;
       border-radius: none;
       font-size: 28px;
-      color: #555759;
+      color: #f5f8f9;
       padding: 0 25px;
       font-family: "Quicksand", sans-serif;
       margin: 5px;
@@ -444,10 +444,10 @@
       max-width: 165px;
       border-radius: 3px; }
       .apf__search form .apf__search__button:hover {
-        background: #cfe019;
+        background: #f5f8f9;
         -webkit-transition: all .3s ease;
         transition: all .3s ease;
-        color: #555759; }
+        color: #002f52; }
       @media (max-width: 700px) {
         .apf__search form .apf__search__button {
           padding: 5px 20px; } }
@@ -697,7 +697,7 @@ section.apf.apf__combined {
               color: #555759; }
             section.apf.apf__combined .apf__results .apf__results__list .apf__results__filter .apf__results__filter__sort input[type="checkbox"]:checked + label:before {
               content: "\f058";
-              color: #c2d217;
+              color: #002f52;
               font-weight: 800; }
             section.apf.apf__combined .apf__results .apf__results__list .apf__results__filter .apf__results__filter__sort input[type="checkbox"]:checked + label:before {
               letter-spacing: 5px;
@@ -876,7 +876,7 @@ section.apf.apf__combined {
                 opacity: 1;
                 width: 50px;
                 height: 50px;
-                color: #c2d217;
+                color: #002f52;
                 font-size: 60px;
                 margin: auto; }
             section.apf.apf__combined .apf__results .apf__results__list .apf__properties article a.apf__property__img:hover .apf__property__img__overlay {
@@ -947,7 +947,7 @@ section.apf.apf__combined {
                         align-items: center; }
                 section.apf.apf__combined .apf__results .apf__results__list .apf__properties article .apf__property__details__wrap .apf__property__details p i {
                   margin-right: 5px;
-                  color: #c2d217;
+                  color: #002f52;
                   position: relative;
                   top: -2px; }
             section.apf.apf__combined .apf__results .apf__results__list .apf__properties article .apf__property__details__wrap .apf__property__meta {
@@ -1146,7 +1146,7 @@ section.apf.apf__combined {
             position: absolute;
             width: 40px;
             height: 40px;
-            background: #c2d217;
+            background: #002f52;
             top: 0;
             left: -40px;
             border-radius: 25px 0 0 25px; }
@@ -1180,7 +1180,7 @@ section.apf.apf__combined {
                 font-size: 20px; } }
           section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__wrap #infowindow h3 span {
             display: inline-block;
-            background: #c2d217;
+            background: #002f52;
             color: #fff;
             padding: 5px 10px;
             float: right;
@@ -1248,7 +1248,7 @@ section.apf.apf__combined {
           width: 100%;
           color: #555759;
           text-transform: uppercase;
-          background: #c2d217;
+          background: #002f52;
           margin-right: 5px;
           margin-top: 20px; }
           @media (max-width: 700px) {
@@ -1489,7 +1489,7 @@ section .apf__list__map__view__mobile {
       color: #6b8aa2; }
   .apf__pagination .apf__current__page {
     padding: 16px 18px 12px;
-    background: #c2d217;
+    background: #002f52;
     color: #555759;
     border-radius: 3px;
     font-weight: 700; }
@@ -1553,7 +1553,7 @@ section.apf.apf__single__property {
             font-size: 14px; }
           section.apf.apf__single__property .apf__single__property__header.boxed .apf__single__property__nav a span {
             font-size: 16px;
-            color: #c2d217;
+            color: #002f52;
             display: -webkit-box;
             display: -webkit-flex;
             display: -ms-flexbox;
@@ -1781,7 +1781,7 @@ section.apf.apf__single__property {
               section.apf.apf__single__property .apf__single__property__header.boxed .apf__single__property__tabs ul li.book__viewing__tab {
                 display: none; } }
             section.apf.apf__single__property .apf__single__property__header.boxed .apf__single__property__tabs ul li.book__viewing__tab a {
-              background: #c2d217;
+              background: #002f52;
               color: #555759;
               font-size: 17px;
               font-weight: 800;
@@ -1991,7 +1991,7 @@ section.apf.apf__single__property {
                   font-size: 20px;
                   margin-right: 10px;
                   /*color:#72e437;*/
-                  color: #c2d217;
+                  color: #002f52;
                   font-weight: bold; }
           section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__content article.apf__brochure iframe {
             width: 100%;
@@ -2028,7 +2028,7 @@ section.apf.apf__single__property {
               section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__content article.apf__brochure .apf__brochure__action p span {
                 color: #555759; }
             section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__content article.apf__brochure .apf__brochure__action a {
-              background: #c2d217;
+              background: #002f52;
               font-size: 18px;
               color: #555759;
               font-weight: 700; }
@@ -2062,7 +2062,7 @@ section.apf.apf__single__property {
             section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article p strong {
               font-weight: 700; }
           section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.viewing {
-            background: #c2d217; }
+            background: #002f52; }
             section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.viewing h3 {
               color: #555759; }
             section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.viewing p {
@@ -2096,7 +2096,7 @@ section.apf.apf__single__property {
               display: flex; }
               section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.branch .branch__details .branch__dept p i {
                 font-size: 18px;
-                color: #c2d217;
+                color: #002f52;
                 margin-right: 10px;
                 position: relative;
                 top: 2px; }
@@ -2195,9 +2195,9 @@ section.apf.apf__single__property {
                 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.documents ul li a i {
                   font-size: 20px;
                   margin-right: 10px;
-                  color: #c2d217; }
+                  color: #002f52; }
                 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.documents ul li a:hover {
-                  color: #c2d217; }
+                  color: #002f52; }
       section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__book__viewing__button {
         background: #555759;
         color: #fff;
@@ -2473,7 +2473,7 @@ section.apf.apf__single__property {
           opacity: 1;
           width: 50px;
           height: 50px;
-          color: #c2d217;
+          color: #002f52;
           font-size: 60px;
           margin: auto; }
       .apf__book__viewing__thanks article a.apf__property__img:hover .apf__property__img__overlay {
@@ -2544,7 +2544,7 @@ section.apf.apf__single__property {
                   align-items: center; }
           .apf__book__viewing__thanks article .apf__property__details__wrap .apf__property__details p i {
             margin-right: 5px;
-            color: #c2d217;
+            color: #002f52;
             position: relative;
             top: -2px; }
       .apf__book__viewing__thanks article .apf__property__details__wrap .apf__property__meta {
@@ -2761,7 +2761,7 @@ section.find-a-branch {
         section.find-a-branch .branch h2 span a:hover {
           color: #555759; }
         section.find-a-branch .branch h2 span a i {
-          color: #c2d217;
+          color: #002f52;
           margin-left: 10px; }
     section.find-a-branch .branch .branch-thumb {
       width: 40%;
@@ -2856,7 +2856,7 @@ section.find-a-branch {
         display: flex; }
         section.find-a-branch .branch .branch-details p i {
           font-size: 22px;
-          color: #c2d217;
+          color: #002f52;
           margin-right: 10px; }
         section.find-a-branch .branch .branch-details p a {
           color: #6b8aa2; }
@@ -3021,7 +3021,7 @@ section #branch_map {
         position: absolute;
         width: 40px;
         height: 40px;
-        background: #c2d217;
+        background: #002f52;
         top: 0;
         left: -40px;
         border-radius: 25px 0 0 25px; }
@@ -3055,7 +3055,7 @@ section #branch_map {
             font-size: 20px; } }
       .apf__branches__map__wrap #infowindow h3 span {
         display: inline-block;
-        background: #c2d217;
+        background: #002f52;
         color: #fff;
         padding: 5px 10px;
         float: right;
@@ -3123,7 +3123,7 @@ section #branch_map {
       width: 100%;
       color: #555759;
       text-transform: uppercase;
-      background: #c2d217;
+      background: #002f52;
       margin-right: 5px;
       margin-top: 20px; }
       @media (max-width: 700px) {
