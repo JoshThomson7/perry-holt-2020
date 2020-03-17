@@ -12,7 +12,7 @@
 
             ul { margin: 0; padding: 20px 0;
                 li { list-style: none; color: $text; display: flex; font-size: 22px; font-weight: 300; align-items: center; line-height: 30px; padding-bottom: 20px;
-                    i { font-size: 30px; color: $primary; width: 60px; height: 60px; border: 1px lighten($text, 50%) solid; line-height: 60px; text-align: center; margin-right: 15px; border-radius: 100%;}
+                    i { font-size: 30px; color: $secondary; width: 60px; height: 60px; border: 2px solid $secondary; line-height: 60px; text-align: center; margin-right: 15px; border-radius: 100%;}
 
                     a { color: $text;
                         &:hover { color: $primary;}

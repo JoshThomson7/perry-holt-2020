@@ -16,6 +16,12 @@
                 text-align: center;
                 flex-direction: column;
 
+                h2{
+                    &:before{
+                        margin: 20px auto;
+                    }
+                }
+
                 article{
                     width: 80%!important;
                 }
@@ -36,7 +42,7 @@
                     width: 50px;
                     height: 1px;
                     background: #f5f8f9;
-                    margin: 20px auto;
+                    margin: 20px 0;
                 }
             }   
             p { font-size: 18px; padding-top: 20px; margin: 0; color: #fff;}
