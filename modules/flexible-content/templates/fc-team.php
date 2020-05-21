@@ -95,6 +95,14 @@ Team (Custom)
                     <?php endif; ?>
                 </div>
 
+                <div class="team_bio">
+                    <?php if(get_field('team_bio', $team_id)): ?>
+                        <article>
+                            <p><?php the_field('team_bio', $team_id) ?></p>
+                        </article>
+                    <?php endif; ?>
+                </div>
+
                 <?php the_content(); ?>
             </div><!-- team__popup__content -->
         </div><!-- team__popup -->
