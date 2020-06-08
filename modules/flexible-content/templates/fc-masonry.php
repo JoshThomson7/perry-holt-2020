@@ -123,6 +123,9 @@ if(!$reuse_id) {
 
                     $team_id = get_sub_field('ms_team_member');
                     $member_id = strtolower(preg_replace("#[^A-Za-z0-9]#", "", get_the_title($team_id)));
+
+                    $attachment_id = get_post_thumbnail_id($team_id);
+                    $team_img = vt_resize($attachment_id,'' , 900, 900, true);
                 ?>
                         <div class="masonry__item <?php echo $row_layout; ?>">
 

@@ -37,12 +37,12 @@
             &:first-of-type { border-right: 0; margin-right: 12px;
                 @include breakpoint(brotherbear) { margin: 0}
 
-                .banner__box__content { padding: 40px 30px 40px 25px;}
+                .banner__box__content { padding: 40px 30px 40px 25px; background: $red; height: 100%;}
             }
 
             &:last-of-type { border-left: 0; margin-left: 12px;
                 @include breakpoint(brotherbear) { margin: 0}
-                .banner__box__content { padding: 40px 25px 40px 30px;}
+                .banner__box__content { padding: 40px 25px 40px 30px; background: $red; height: 100%;}
             }
 
             &.main { transform:scale3d(1.07, 1.07, 1.07); background: rgba($secondary, 0.9); border: none;
