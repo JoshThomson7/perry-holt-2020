@@ -98,7 +98,7 @@ $team_full = new WP_Query(array(
                     <?php if(get_field('team_linkedin', $team_id)): ?>
                         <article>
                             <i class="fab fa-linkedin"></i>
-                            <a href="<?php the_field('team_linkedin'); ?>" target="_blank">LinkedIn</a>
+                            <a href="<?php the_field('team_linkedin',  $team_id); ?>" target="_blank">LinkedIn</a>
                         </article>
                     <?php endif; ?>
                 </div>
