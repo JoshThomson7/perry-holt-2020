@@ -16,7 +16,7 @@
     <nav id="nav_mobile" class="nav__mobile">
 		<div>
 		    <div class="menu__logo"><img src="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/img/logo.png" alt="<?php bloginfo('name'); ?> /"></div>
-	    	<?php wp_nav_menu(array('menu' => 'Main Menu', 'container' => false)); ?>
+	    	<?php wp_nav_menu(array('menu' => 'Mobile Menu', 'container' => false)); ?>
 	    </div>
 	</nav>
 

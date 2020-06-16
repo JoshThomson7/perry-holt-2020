@@ -46,7 +46,7 @@
             }
 
             &.main { transform:scale3d(1.07, 1.07, 1.07); background: rgba($secondary, 0.9); border: none;
-                @include breakpoint(brotherbear) { order: 0;}
+                @include breakpoint(brotherbear) { order: 1;}
 
                 .banner__box__content { position: relative; /*top:-50px;*/ padding:40px 40px 20px;
                     @include breakpoint(brotherbear) { border-bottom: none; padding-bottom: 40px;}

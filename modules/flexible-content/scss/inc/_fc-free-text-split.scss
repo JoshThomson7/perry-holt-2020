@@ -3,8 +3,16 @@
     display: flex;
     justify-content: space-around;
 
+    @include breakpoint(teenbear){
+        flex-direction: column;
+    }
+
     .left, .right{
         padding: 0 20px;
+
+        @include breakpoint(teenbear){
+            width: 100%!important;
+        }
 
         form{
             .gform_footer{
