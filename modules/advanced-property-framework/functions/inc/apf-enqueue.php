@@ -20,7 +20,7 @@ function apf_wp_head() {
 	apf_property_js_vars();
 	echo "</script>";
 }
-add_action( 'wp_head', 'apf_wp_head', 0);
+//add_action( 'wp_head', 'apf_wp_head', 0);
 
 
 /*
@@ -40,6 +40,7 @@ function apf_enqueue() {
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
         'ajax_nonce' => wp_create_nonce('$C.cGLu/1zxq%.KH}PjIKK|2_7WDN`x[vdhtF5GS4|+6%$wvG)2xZgJcWv3H2K_M'),
         'apf_path' => apf_path(true),
+        'apf_page' => get_permalink(get_page_by_path('property-search')),
         'apf_properties_map_url' => get_permalink(get_page_by_path('property-search/xml')),
         'apf_branches_map_url' => get_permalink(get_page_by_path('find-a-branch/xml'))
 	));

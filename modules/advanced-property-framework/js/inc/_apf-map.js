@@ -45,8 +45,8 @@ function apf_init_map() {
         var infowindow = new google.maps.InfoWindow();
         var bounds = new google.maps.LatLngBounds();
 
-        var marker_icon = new google.maps.MarkerImage(the_hard_men_path+"/modules/advanced-property-framework/img/marker-property.png", null, null, null, new google.maps.Size(50,38));
-        var hover_icon = new google.maps.MarkerImage(the_hard_men_path+"/modules/advanced-property-framework/img/marker-property-hover.png", null, null, null, new google.maps.Size(60,46));
+        var marker_icon = new google.maps.MarkerImage(apf_ajax_object.apf_path+"/img/marker-property.png", null, null, null, new google.maps.Size(50,38));
+        var hover_icon = new google.maps.MarkerImage(apf_ajax_object.apf_path+"/img/marker-property-hover.png", null, null, null, new google.maps.Size(60,46));
 
         // Read the data
         downloadUrl(apf_ajax_object.apf_properties_map_url, function(doc) {

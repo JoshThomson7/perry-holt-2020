@@ -1,37 +1,67 @@
+<?php 
+/**
+ * APF Search Form
+ *
+ * @author  Various
+ * @package Advanced Property Framework
+ *
+*/
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
+$apf_settings = new APF_Settings();
+$markets = $apf_settings->markets();
+$departments = $apf_settings->departments();
+?>
 <div class="apf__search">
-    <form action="<?php echo esc_url(home_url()); ?>/property-search/" method="get">
+    <form action="<?php echo esc_url(home_url()); ?>/property-search/" id="apf_search">
 
-        <?php /*if(current_user_can('administrator')): */ ?>
-            <div class="apf__search__buyrent">
-                <input type="radio" name="type" value="sales" class="apf__checkbox__sales" />
-                <input type="radio" name="type" value="lettings" class="apf__checkbox__lettings" />
-
-                <a href="#" title="Buy" class="apf__sales">Buy</a>
-                <a href="#" title="Rent" class="apf__lettings">Rent</a>
+        <?php if(count($markets) > 1): ?>
+            <div class="apf__search__switch column apf-search-dept">
+                <?php
+                    $dept_count = 0;
+                    foreach($markets as $market):
+                ?>
+                    <input type="radio" id="apf_<?php echo $market['value']; ?>" name="apf_market" value="<?php echo $market['value']; ?>" <?php echo $dept_count == 0 ? 'checked' : ''; ?> />
+                    <label for="apf_<?php echo $market['value']; ?>"><?php echo $market['label']; ?></label>
+                <?php $dept_count++; endforeach; ?>
             </div><!-- search-buyrent -->
-        <?php /*else: ?>
-            <input type="hidden" name="type" value="for-sale" class="apf__search__type" />
-        <?php //endif; */ ?>
+        <?php else: ?>
+            <input type="hidden" name="apf_market" value="<?php echo $markets[0]['value']; ?>"/>
+        <?php endif; ?>
+        
+        <?php if(count($departments) > 1): ?>
+            <div class="apf__search__switch apf-search-type">
+                <?php
+                    $department_count = 0;
+                    foreach($departments as $department):
+                ?>
+                    <input type="radio" id="apf_<?php echo $department['value']; ?>" name="apf_dept" value="<?php echo $department['value']; ?>" <?php echo $department_count == 0 ? 'checked' : ''; ?> />
+                    <label for="apf_<?php echo $department['value']; ?>"><?php echo $department['label']; ?></label>
+                <?php $department_count++; endforeach; ?>
+            </div><!-- search-buyrent -->
+        <?php else: ?>
+            <input type="hidden" name="apf_dept" value="<?php echo $departments[0]['value']; ?>"/>
+        <?php endif; ?>
 
-        <input type="text" name="area_search" placeholder="Area, postcode, town or street" class="apf__area__search" value="<?php echo $_SESSION["area_search"]; ?>" />
+        <input type="text" name="apf_location" placeholder="Area, postcode, town or street" class="apf__area__search" value="<?php echo $_SESSION["area_search"]; ?>" />
 
         <div class="apf__search__selects">
             <div class="apf__select__wrap">
-                <select name="minprice" id="minprice" class="apf__select apf__minprice"></select>
+                <select name="apf_minprice" id="apf_minprice" class="apf__select apf__minprice"></select>
                 <span class="fal fa-chevron-down"></span>
             </div><!-- apf__select__wrap -->
 
             <div class="apf__select__wrap">
-                <select name="maxprice" id="maxprice" class="apf__select apf__maxprice"></select>
+                <select name="apf_maxprice" id="apf_maxprice" class="apf__select apf__maxprice"></select>
                 <span class="fal fa-chevron-down"></span>
             </div><!-- apf__select__wrap -->
 
             <?php if(is_front_page()): ?>
-                <input type="hidden" name="minbeds" value="0" />
-                <input type="hidden" name="maxbeds" value="100" />
+                <input type="hidden" name="apf_minbeds" value="0" />
+                <input type="hidden" name="apf_maxbeds" value="100" />
             <?php else: ?>
                 <div class="apf__select__wrap">
-                    <select name="minbeds" class="apf__select apf__minbeds">
+                    <select name="apf_minbeds" class="apf__select apf__minbeds">
                         <option value="0">Min beds</option>
                         <option value="1">Min 1 bed</option>
                         <option value="2">Min 2 beds</option>
@@ -49,7 +79,7 @@
                 </div><!-- apf__select__wrap -->
 
                 <div class="apf__select__wrap">
-                    <select name="maxbeds" class="apf__select apf__maxbeds">
+                    <select name="apf_maxbeds" class="apf__select apf__maxbeds">
                         <option value="100">Max beds</option>
                         <option value="1">Max 1 bed</option>
                         <option value="2">Max 2 beds</option>
@@ -68,15 +98,17 @@
             <?php endif; ?>
         </div><!-- apf__search__selects -->
 
-        <input type="hidden" name="view" class="apf__view" value="<?php if(isset($_SESSION["view"]) && $_SESSION["view"] == 'map'): ?>map<?php else: ?>grid<?php endif; ?>" />
-        <input type="hidden" name="order" class="apf__order" value="<?php echo $_SESSION["order"]; ?>" />
-        <input type="hidden" name="apf_page" class="apf_page" value="<?php if(isset($_SESSION["apf_page"]) && $_SESSION["apf_page"] != '') { echo $_SESSION["apf_page"]; } else { echo "1"; } ?>" />
-        <input type="hidden" name="apf_show" class="apf_show" value="<?php if(isset($_SESSION["apf_show"]) && $_SESSION["apf_show"] != '') { echo $_SESSION["apf_show"]; } else { echo "8"; } ?>" />
-        <input type="hidden" name="apf_status" value="<?php if(isset($_SESSION["apf_status"]) && $_SESSION["apf_status"] != '') { echo "exclude"; } ?>" />
-        <input type="hidden" name="apf_search" value="go" />
-
-        <button type="submit" class="apf__search__button<?php if(apf_is_property_search()): ?> apf__ajax__trigger<?php endif; ?>">
+        <button type="submit" class="apf__search__button apf-fetch<?php if(!apf_is_property_search()) { echo ' apf-json'; } ?>">
             <span class="fal fa-search"></span>
         </button>
+
+        <?php if(is_page('property-search')): ?>
+            <?php require_once('apf-filter-form.php'); ?>
+        <?php else: ?>
+            <input type="hidden" name="apf_view" value="grid">
+            <input type="hidden" name="apf_status" value="">
+            <input type="hidden" name="apf_branch" value="">
+            <input type="hidden" name="apf_order" value="price_desc">
+        <?php endif; ?>
     </form>
 </div><!-- apf__search -->

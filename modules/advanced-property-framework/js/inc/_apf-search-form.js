@@ -7,8 +7,8 @@
 *   @version 1.0
 */
 
-var sales_label = 'sales';
-var lettings_label = 'lettings';
+var sales_label = 'to-let';
+var lettings_label = 'for-sale';
 
 var sales_prices = '<option value="50000">&pound;50,000</option>'+
 '<option value="75000">&pound;75,000</option>'+

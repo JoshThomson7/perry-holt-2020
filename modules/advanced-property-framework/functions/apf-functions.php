@@ -1,15 +1,34 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-require_once('inc/apf-sessions.php');
+<?php 
+/**
+ * APF Functions
+ *
+ * @author  Various
+ * @package Advanced Property Framework
+ *
+*/
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+//require_once('inc/apf-sessions.php');
 require_once('inc/apf-post-type.php');
 require_once('inc/apf-cpt-columns.php');
 require_once('inc/apf-pages.php');
 require_once('inc/apf-templates.php');
-require_once('inc/apf-property-js-vars.php');
+//require_once('inc/apf-property-js-vars.php');
 require_once('inc/apf-enqueue.php');
 require_once('inc/apf-endpoints.php');
 require_once('inc/apf-acf-functions.php');
 require_once('inc/apf-ajax.php');
-require_once('providers/apf-jupix.php');
+require_once('class-apf-settings.php');
+
+$apf_settings = new APF_Settings();
+switch ($apf_settings->provider()) {
+    case 'jupix':
+        require_once('providers/apf-jupix.php');
+        break;
+    
+    default:
+        # code...
+        break;
+}
 
 // apps
 require_once(apf_path().'/apps/apf-branches/functions/apf-branches-functions.php');
@@ -141,33 +160,11 @@ function apf_featured_image_description( $content ) {
 }
 
 
-/*--------------------------------------------------------------------------*/
-/*    function apf_back_to_search_url()
-/*    returns the back to search URL based
-/*    on $_SESSION variables
-/*--------------------------------------------------------------------------*/
-function apf_back_to_search_url() {
-
-    $back_to_search = get_permalink(get_page_by_path('property-search'));
-
-    //pagination
-    if($_SESSION["apf_page"] > 1) {
-        $back_to_search .= 'page/'.$_SESSION["apf_page"].'/';
-    }
-
-    $back_to_search .= '?type='.$_SESSION["type"];
-    $back_to_search .= '&amp;area_search='.$_SESSION["area_search"];
-    $back_to_search .= '&amp;minprice='.$_SESSION["minprice"];
-    $back_to_search .= '&amp;maxprice='.$_SESSION["maxprice"];
-    $back_to_search .= '&amp;minbeds='.$_SESSION["minbeds"];
-    $back_to_search .= '&amp;maxbeds='.$_SESSION["maxbeds"];
-    $back_to_search .= '&amp;status='.$_SESSION["apf_status"];
-    $back_to_search .= '&amp;view='.$_SESSION["view"];
-    $back_to_search .= '&amp;order='.$_SESSION["order"];
-    $back_to_search .= '&amp;apf_page='.$_SESSION["apf_page"];
-    $back_to_search .= '&amp;apf_search=go';
-
-    return $back_to_search;
+/**
+ * Returns property search page URL
+ */
+function apf_property_search_url() {
+    return get_permalink(get_page_by_path('property-search'));
 }
 
 
@@ -176,11 +173,11 @@ function apf_back_to_search_url() {
 /*    returns the back to search URL based
 /*    on $_SESSION variables
 /*--------------------------------------------------------------------------*/
-function apf_pagination($pages = '', $range = 4) {
+function apf_pagination($pages = '', $range = 4, $apf_page = 1) {
     $showitems = ($range * 2)+1;
 
-    global $paged;
-    $paged = $_SESSION['apf_page'];
+    $paged = $apf_page;
+    echo $paged;
 
     if(empty($paged)) $paged = 1;
 
@@ -196,19 +193,19 @@ function apf_pagination($pages = '', $range = 4) {
     if(1 != $pages) {
 
         echo "<div class=\"apf__pagination\"><div class=\"apf__page__count\">Page ".$paged." of ".$pages."</div><div class=\"apf__page__numbers\">";
-        if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."' class=\"apf__ajax__trigger apf__pagination\">&laquo;</a>";
-        if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."' class=\"apf__ajax__trigger apf__paginate\">&lsaquo;</a>";
+        if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."' class=\"apf-paginate apf__pagination\">&laquo;</a>";
+        if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."' class=\"apf-paginate apf__paginate\">&lsaquo;</a>";
 
         for ($i=1; $i <= $pages; $i++) {
 
             if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems )) {
-                echo ($paged == $i)? "<span class=\"apf__current__page\">".$i."</span>":"<a href=\"#\" class=\"inactive apf__ajax__trigger apf__paginate\" data-apf-paged=\"".$i."\">".$i."</a>";
+                echo ($paged == $i)? "<span class=\"apf__current__page\">".$i."</span>":"<a href=\"#\" class=\"inactive apf-paginate apf__paginate\" data-apf-page=\"".$i."\">".$i."</a>";
             }
 
         }
 
-        if ($paged < $pages && $showitems < $pages) echo "<a href=\"".get_pagenum_link($paged + 1)."\" class=\"apf__ajax__trigger apf__paginate\">&rsaquo;</a>";
-        if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."' class=\"apf__ajax__trigger apf__paginate\">&raquo;</a>";
+        if ($paged < $pages && $showitems < $pages) echo "<a href=\"".get_pagenum_link($paged + 1)."\" class=\"apf-paginate apf__paginate\">&rsaquo;</a>";
+        if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."' class=\"apf-paginate apf__paginate\">&raquo;</a>";
         echo "</div></div>\n";
     }
 }

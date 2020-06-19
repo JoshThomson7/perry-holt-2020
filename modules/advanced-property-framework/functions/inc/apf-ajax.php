@@ -1,4 +1,4 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+<?php
 /**
  * APF AJAX
  *
@@ -8,43 +8,154 @@
  * @package Advanced Property Framework
  *
 */
-function apf_ajax() {
 
-	/*
-	/* Security check
-	*/
-	wp_verify_nonce('$C.cGLu/1zxq%.KH}PjIKK|2_7WDN`x[vdhtF5GS4|+6%$wvG)2xZgJcWv3H2K_M', 'apf_security');
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-	$_SESSION['type'] = htmlspecialchars(trim($_POST['apf_type_data']));
-	$_SESSION['area_search'] = str_replace(',', '', $_POST['apf_area_search_data']); // get rid of commas
-	$_SESSION['minprice'] = $_POST['apf_minprice_data'];
-	$_SESSION['maxprice'] = $_POST['apf_maxprice_data'];
-	$_SESSION['minbeds'] = $_POST['apf_minbeds_data'];
-	$_SESSION['maxbeds'] = $_POST['apf_maxbeds_data'];
-	$_SESSION['view'] = $_POST['apf_view_data'];
-	$_SESSION['order'] = $_POST['apf_order_data'];
-    $_SESSION['apf_status'] = $_POST['apf_status_data'];
-    $_SESSION['apf_branch'] = $_POST['apf_branch'];
-	$_SESSION['apf_page'] = $_POST['apf_page_data'];
-    $_SESSION['apf_show'] = $_POST['apf_show_data'];
+function fetchProperties($data) {
 
-	// IMPORTANT: Must use get_template_directory() to get the full absolute path
-	// of an include that's in a different folder than this file.
-	// It's probably best practice anyway for any include/require
+    $search_params = isset($_POST['search_data']) && !empty($_POST['search_data']) ? $_POST['search_data'] : '';
 
-	require_once(apf_path().'templates/apf-query.php');
-	require_once(apf_path().'templates/apf-loop.php');
+    $apf_market = isset($search_params['apf_market']) && !empty($search_params['apf_market']) ? htmlspecialchars(trim($search_params['apf_market'])) : 'residential';
+    $apf_dept = isset($search_params['apf_dept']) && !empty($search_params['apf_dept']) ? htmlspecialchars(trim($search_params['apf_dept'])) : 'for-sale';
+    $apf_location = isset($search_params['apf_location']) && !empty($search_params['apf_location']) ? str_replace(',', '', trim($search_params['apf_location'])) : '';
+    
+	$apf_minprice = isset($search_params['apf_minprice']) && !empty($search_params['apf_minprice']) ? $search_params['apf_minprice'] : 0;
+	$apf_maxprice = isset($search_params['apf_maxprice']) && !empty($search_params['apf_maxprice']) ? $search_params['apf_maxprice'] : 9999999999;
+	$apf_minbeds = isset($search_params['apf_minbeds']) && !empty($search_params['apf_minbeds']) ? $search_params['apf_minbeds'] : 0;
+	$apf_maxbeds = isset($search_params['apf_maxbeds']) && !empty($search_params['apf_maxbeds']) ? $search_params['apf_maxbeds'] : 9999999999;
+	$apf_view = isset($search_params['apf_view']) && !empty($search_params['apf_view']) ? $search_params['apf_view'] : 'grid';
+	$apf_order = isset($search_params['apf_order']) && !empty($search_params['apf_order']) ? $search_params['apf_order'] : 'price_desc';
+    $apf_status = isset($search_params['apf_status']) && !empty($search_params['apf_status']) ? $search_params['apf_status'] : '';
+    $apf_branch = isset($search_params['apf_branch']) && !empty($search_params['apf_branch']) ? $search_params['apf_branch'] : '';
+	$apf_page = isset($search_params['apf_page']) && !empty($search_params['apf_page']) ? $search_params['apf_page'] : 1;
+    
+    $args = array(
+        'post_type'         => 'property',
+        'post_status'       => 'publish',
+        'tax_query' => array(
+            'relation' => 'AND',
+            array(
+                'taxonomy'  => 'property_market',
+                'field'     => 'slug',
+                'terms'     => $apf_market,
+                'operator'  => 'IN'
+            ),
+            array(
+                'taxonomy'  => 'property_department',
+                'field'     => 'slug',
+                'terms'     => $apf_dept,
+                'operator'  => 'IN'
+            )
+        ),
+        'meta_query' => array(
+            array(
+                'key'       => 'property_address_searchable',
+                'value'     => $apf_location,
+                'compare'   => 'LIKE'
+            ),
+            array(
+                'key'       => 'property_price',
+                'value'     => array($apf_minprice, $apf_maxprice),
+                'compare'   => 'BETWEEN',
+                'type'      => 'numeric'
+            ),
+            array(
+                'key'       => 'property_bedrooms',
+                'value'     => array($apf_minbeds, $apf_maxbeds),
+                'compare'   => 'BETWEEN',
+                'type'      => 'numeric'
+            ),
+            // array(
+            //     'key'       => 'property_status',
+            //     'value'     => apf_property_search_exclude_status($apf_status),
+            //     'compare'   => 'NOT IN',
+            // )
+        ),
+        'posts_per_page'    => 16,
+        'paged'             => $apf_page,
+        'fields'            => 'ids'
+    );
 
-	// DEBUG
-	/*if(is_user_logged_in()) {
-		print_r($_SESSION);
-	}*/
 
-	die();
+    switch ($apf_order) {
+        case 'price_asc':
+            $args['meta_key'] = 'property_price';
+            $args['orderby'] = 'meta_value_num';
+            $args['order'] = 'ASC';
+            break;
+
+        case 'date_desc':
+            $args['orderby'] = 'date';
+            $args['order'] = 'DESC';
+            break;
+
+        case 'date_asc':
+            $args['orderby'] = 'date';
+            $args['order'] = 'ASC';
+            break;
+        
+        default:
+            $args['meta_key'] = 'property_price';
+            $args['orderby'] = 'meta_value_num';
+            $args['order'] = 'DESC';
+            break;
+    }
+
+    if($apf_branch) {
+        $args['meta_query'][] = array(
+            'key'       => 'property_branch_id',
+            'value'     => $apf_branch,
+            'compare'   => '=',
+            'type'      => 'numeric'
+        );
+    }
+
+    // WP_Query
+    $query = new WP_Query($args);
+
+    // Return
+    $data = new stdClass();
+    $data->search_params = $search_params;
+    $data->WP_Query = new WP_Query($args);
+
+    return $data;
+
 }
 
-add_action('wp_ajax_nopriv_apf_ajax', 'apf_ajax');
-add_action('wp_ajax_apf_ajax', 'apf_ajax');
+function apf_property_search() {
+
+	// Security check
+    wp_verify_nonce('$C.cGLu/1zxq%.KH}PjIKK|2_7WDN`x[vdhtF5GS4|+6%$wvG)2xZgJcWv3H2K_M', 'apf_security');
+    
+    $search_params = isset($_POST['search_data']) && !empty($_POST['search_data']) ? $_POST['search_data'] : '';
+    $properties = fetchProperties($search_params);
+	require_once(apf_path().'templates/apf-loop.php');
+
+	wp_die();
+}
+
+add_action('wp_ajax_nopriv_apf_property_search', 'apf_property_search');
+add_action('wp_ajax_apf_property_search', 'apf_property_search');
+
+/**
+ * Filter Map.
+ *
+ * @since	1.0
+ */
+function apf_map() {
+
+    // Security check.
+    wp_verify_nonce('$C.cGLu/1zxq%.KH}PjIKK|2_7WDN`x[vdhtF5GS4|+6%$wvG)2xZgJcWv3H2K_M', 'ajax_security');
+
+    $search_params = isset($_POST['search_data']) && !empty($_POST['search_data']) ? $_POST['search_data'] : '';
+    $properties = fetchProperties($search_params);
+    wp_send_json($properties->WP_Query->posts);
+    wp_die();
+
+}
+
+add_action('wp_ajax_nopriv_apf_map', 'apf_map');
+add_action('wp_ajax_apf_map', 'apf_map');
 
 /*
 *	Get total number of pages

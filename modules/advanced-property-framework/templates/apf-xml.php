@@ -1,17 +1,14 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-global $apf_is_map;
+<?php
+global $post;
 
-$apf_is_map = true;
-
-//print_r($_SESSION);
-
-require_once(get_template_directory().'/modules/advanced-property-framework/templates/apf-query.php');
+$posts = explode(',', $_GET['posts']);
 
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 echo '<markers>';
 ?>
     <?php
-        while($property_query->have_posts()) : $property_query->the_post();
+        foreach($posts as $post):
+            setup_postdata($post);
 
             // Name
             $name = htmlentities(utf8_decode(get_the_title()));
@@ -38,5 +35,5 @@ echo '<markers>';
             $property_image = htmlentities(utf8_decode(apf_the_property_image(null, null, false, false)));
     ?>
         <marker lat="<?php echo $lat; ?>" lng="<?php echo $lng; ?>" permalink="<?php the_permalink(); ?>" name="<?php echo $name; ?>" price="<?php echo $property_price; ?>" type="<?php echo get_post_type(); ?>" status="<?php apf_the_property_status(true, false); ?>" seo="<?php apf_the_property_seo_title(); ?>" image="<?php echo $property_image; ?>" />
-    <?php endwhile; wp_reset_query(); ?>
+        <?php endforeach; wp_reset_postdata(); ?>
 </markers>

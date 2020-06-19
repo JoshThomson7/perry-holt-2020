@@ -7,7 +7,7 @@
 *	@version 1.0
 */
 
-.apf__results__filter { display:flex; padding-bottom:15px; justify-content:space-between; align-items: center;
+.apf__results__filter { display:flex; padding-bottom:15px; justify-content:space-between; align-items: center; padding: 10px 5px; border-top: 1px $border solid; border-bottom: 1px $border solid; flex: 1 0 100%; margin-top: 5px;
 
 	@include breakpoint(mamabear) { flex-direction:column;}
 
@@ -15,7 +15,8 @@
 
 		@include breakpoint(mamabear) { border-bottom:1px solid darken($lightgrey, 5%); width: 100%;}
 
-		a { display:block; margin-right:20px;
+        a,
+        label { display:block; margin-right:20px; cursor: pointer;
 
 			@include breakpoint(mamabear) { display:flex; justify-content:center; width:100%; margin-right:0; border-right:1px solid darken($lightgrey, 5%); padding:10px 0;
 				&:last-of-type { border-right:none;}
@@ -25,24 +26,25 @@
                 @include breakpoint(brotherbear) { display: none;}
             }
 
-			span { font-size: 24px; color: darken($lightgrey, 20%);}
+			i { font-size: 24px; color: darken($lightgrey, 20%);}
 
 			&.active {
-				span { color: $primary;}
-			}
-
-			&.apf__sort__list {
-				span { font-size:45px; position:relative; top:-2px;}
+				i { color: $primary;}
 			}
 
 			&.apf__filter__refine { display:none;
 				@include breakpoint(mamabear) { display:flex;}
 			}
-		}
+        }
+        
+        input[type="checkbox"],
+        input[type="radio"] { display:none;
+            &:checked + label i { color: $primary;}
+        }
 
 	}
 
-	.apf__results__filter__sort { display:flex;
+	.apf__results__filter__sort { display:flex; align-items: center; justify-content: flex-end;
 		@include breakpoint(mamabear) { width: 100%;}
 
 		form { display:flex; align-items:center;
@@ -71,7 +73,7 @@
 
 		}
 
-		select { font-family:$primaryFont; border:none; padding:16px 50px 13px 15px; font-size:16px; color:$text; background:url('../../img/select-arrow-down.png') no-repeat right center $lightgrey; background-position-x:100%; background-size:21px; cursor:pointer; border-radius:0; margin-left:20px; border-radius: 3px; font-weight: 600;
+		select { font-family:$primaryFont; border:none; padding:16px 50px 13px 15px; font-size:16px; color:$text; background:url('../../img/select-arrow-down.png') no-repeat right center darken($lightgrey, 5%); background-position-x:100%; background-size:21px; cursor:pointer; border-radius:0; margin-left:20px; border-radius: 3px; font-weight: 600;
 
 			@include breakpoint(papabear) { font-size:14px; padding:16px 30px 13px 15px;}
 			@include breakpoint(brotherbear) { font-size:initial; width:100%;}

@@ -9,23 +9,23 @@
 
 jQuery(document).ready(function($){
     
-    if(apf_view === 'list') { 
+    // if(apf_view === 'list') { 
     
-        $('.apf__filter__list').addClass('active');
-        $('.apf__filter__grid').removeClass('active');
+    //     $('.apf__filter__list').addClass('active');
+    //     $('.apf__filter__grid').removeClass('active');
 
-    } else { 
+    // } else { 
 
-        $('.apf__filter__list').removeClass('active');
-        $('.apf__filter__grid').addClass('active');
+    //     $('.apf__filter__list').removeClass('active');
+    //     $('.apf__filter__grid').addClass('active');
 
-    }
+    // }
 
-    $('.apf__filter__refine, .apf__single__property__nav__refine').click(function(e){
-        e.preventDefault();
-        $(this).toggleClass('active');
-        $('.apf__search').toggleClass('show');
-    });
+    // $('.apf__filter__refine, .apf__single__property__nav__refine').click(function(e){
+    //     e.preventDefault();
+    //     $(this).toggleClass('active');
+    //     $('.apf__search').toggleClass('show');
+    // });
 
    /* $('.apf__filter__grid').click(function(e){
         e.preventDefault();

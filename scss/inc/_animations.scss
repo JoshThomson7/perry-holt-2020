@@ -44,7 +44,41 @@
     to { opacity: 1;transform: none;}
 }
 
-@keyframes zoomScale {
-    0% {transform:scale(1.2) rotate(.02deg)}
-    to {transform:scale(1) rotate(.02deg)}
+// Facebook-like animation
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+@-webkit-keyframes avbGradient {
+    0% { background-position: 10% 0%; }
+    50% { background-position: 91% 100%; }
+    100% { background-position: 10% 0%; }
+}
+
+@keyframes avbGradient {
+    0% { background-position: 10% 0%; }
+    50% { background-position: 91% 100%; }
+    100% { background-position: 10% 0%; }
+}
+
+.is-loading {
+    animation-duration: .7s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: darken($lightgrey, 2%);
+    background: linear-gradient(to right, darken($lightgrey, 2%) 8%, darken($lightgrey, 4%) 24%, darken($lightgrey, 2%) 33%);
+    background-size: 800px 104px;
+    position: relative;
+
+    &.dark {
+        background: darken($lightgrey, 6%);
+        background: linear-gradient(to right, darken($lightgrey, 6%) 8%, darken($lightgrey, 11%) 24%, darken($lightgrey, 6%) 33%);
+    }
 }

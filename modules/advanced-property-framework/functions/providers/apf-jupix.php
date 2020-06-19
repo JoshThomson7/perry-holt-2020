@@ -23,15 +23,7 @@ function apf_the_property_price($show_currency = true, $show_period = true, $htm
     $property_id = $post->ID;
 
     // Price
-        if(has_term('sales', 'property_type', $property_id)) {
-
-            $price = number_format((float)get_field('property_price', $property_id));
-
-        } elseif(has_term('lettings', 'property_type', $property_id)) {
-
-            $price = number_format((float)get_field('property_rent', $property_id));
-
-        } elseif(has_term('commercial', 'property_type', $property_id)) {
+        if(has_term('commercial', 'property_market', $property_id)) {
 
             //Let's do some clever stuff here
             $price_start = '';
@@ -58,6 +50,18 @@ function apf_the_property_price($show_currency = true, $show_period = true, $htm
                 } else { 
                     $price = $price_start.$price_end;
                 }
+
+            }
+
+        } else {
+
+            if(has_term('for-sale', 'property_department', $property_id)) {
+
+                $price = number_format((float)get_field('property_price', $property_id));
+
+            } elseif(has_term('to-let', 'property_department', $property_id)) {
+
+                $price = number_format((float)get_field('property_rent', $property_id));
 
             }
 
@@ -119,14 +123,17 @@ function apf_the_property_price($show_currency = true, $show_period = true, $htm
 
         }
 
-    if(has_term('lettings', 'property_type', $property_id)) { 
+    if(has_term('to-let', 'property_department', $property_id)) { 
         if(apf_is_property_search()) { 
             $tenants_fees = '<span class="apf__fees"><a href="'.esc_url(home_url()).'/lettings-fees/" target="_blank">Letting Fees</a></span>';
         }
     }
 
+    $text_after_price = get_field('property_text_after_price', $post_id);
+    $text_after_price = $text_after_price ? ' ('.$text_after_price.')' : '';
+
     // echo/return
-    $property_price = $pre_price.$currency.$price.$period.$tenants_fees;
+    $property_price = $pre_price.$currency.$price.$period.$tenants_fees.$text_after_price;
 
     if($echo)
         echo $property_price;
@@ -304,112 +311,115 @@ function apf_property_type($echo = true) {
 
     $property_type = get_field('property_type', $property_id);
 
-    switch ($property_type) {
-        case '1':
-            $property_type = 'Barn Conversion';
-            break;
-        case '2':
-            $property_type = 'Cottage';
-            break;
-        case '3':
-            $property_type = 'Chalet';
-            break;
-        case '4':
-            $property_type = 'Detached House';
-            break;
-        case '5':
-            $property_type = 'Semi-Detached House';
-            break;
-        case '6':
-            $property_type = 'Farm House';
-            break;
-        case '7':
-            $property_type = 'Manor House';
-            break;
-        case '8':
-            $property_type = 'Mews';
-            break;
-        case '9':
-            $property_type = 'Mid Terraced House';
-            break;
-        case '10':
-            $property_type = 'End Terraced House';
-            break;
-        case '11':
-            $property_type = 'Town House';
-            break;
-        case '12':
-            $property_type = 'Villa';
-            break;
-        case '28':
-            $property_type = 'Link Detached';
-            break;
-        case '29':
-            $property_type = 'Shared House';
-            break;
-        case '31':
-            $property_type = 'Sheltered Housing';
-            break;
-        case '13':
-            $property_type = 'Apartment';
-            break;
-        case '14':
-            $property_type = 'Bedsit';
-            break;
-        case '15':
-            $property_type = 'Ground Floor Flat';
-            break;
-        case '16':
-            $property_type = 'Flat';
-            break;
-        case '17':
-            $property_type = 'Ground Floor Maisonette';
-            break;
-        case '18':
-            $property_type = 'Maisonette';
-            break;
-        case '19':
-            $property_type = 'Penthouse';
-            break;
-        case '20':
-            $property_type = 'Studio';
-            break;
-        case '30':
-            $property_type = 'Shared Flat';
-            break;
-        case '21':
-            $property_type = 'Detached Bungalow';
-            break;
-        case '22':
-            $property_type = 'Semi-Detached Bungalow';
-            break;
-        case '34':
-            $property_type = 'Mid Terraced Bungalow';
-            break;
-        case '35':
-            $property_type = 'End Terraced Bungalow';
-            break;
-        case '23':
-            $property_type = 'Building Plot / Land';
-            break;
-        case '24':
-            $property_type = 'Garage';
-            break;
-        case '25':
-            $property_type = 'House Boat';
-            break;
-        case '26':
-            $property_type = 'Mobile Home';
-            break;
-        case '27':
-            $property_type = 'Parking';
-            break;
-        case '32':
-            $property_type = 'Equestrian';
-            break;
-        case '33':
-            $property_type = 'Unconverted Barn';
-            break;
+    if(is_numeric($property_type)) {
+        switch ($property_type) {
+            case '1':
+                $property_type = 'Barn Conversion';
+                break;
+            case '2':
+                $property_type = 'Cottage';
+                break;
+            case '3':
+                $property_type = 'Chalet';
+                break;
+            case '4':
+                $property_type = 'Detached House';
+                break;
+            case '5':
+                $property_type = 'Semi-Detached House';
+                break;
+            case '6':
+                $property_type = 'Farm House';
+                break;
+            case '7':
+                $property_type = 'Manor House';
+                break;
+            case '8':
+                $property_type = 'Mews';
+                break;
+            case '9':
+                $property_type = 'Mid Terraced House';
+                break;
+            case '10':
+                $property_type = 'End Terraced House';
+                break;
+            case '11':
+                $property_type = 'Town House';
+                break;
+            case '12':
+                $property_type = 'Villa';
+                break;
+            case '28':
+                $property_type = 'Link Detached';
+                break;
+            case '29':
+                $property_type = 'Shared House';
+                break;
+            case '31':
+                $property_type = 'Sheltered Housing';
+                break;
+            case '13':
+                $property_type = 'Apartment';
+                break;
+            case '14':
+                $property_type = 'Bedsit';
+                break;
+            case '15':
+                $property_type = 'Ground Floor Flat';
+                break;
+            case '16':
+                $property_type = 'Flat';
+                break;
+            case '17':
+                $property_type = 'Ground Floor Maisonette';
+                break;
+            case '18':
+                $property_type = 'Maisonette';
+                break;
+            case '19':
+                $property_type = 'Penthouse';
+                break;
+            case '20':
+                $property_type = 'Studio';
+                break;
+            case '30':
+                $property_type = 'Shared Flat';
+                break;
+            case '21':
+                $property_type = 'Detached Bungalow';
+                break;
+            case '22':
+                $property_type = 'Semi-Detached Bungalow';
+                break;
+            case '34':
+                $property_type = 'Mid Terraced Bungalow';
+                break;
+            case '35':
+                $property_type = 'End Terraced Bungalow';
+                break;
+            case '23':
+                $property_type = 'Building Plot / Land';
+                break;
+            case '24':
+                $property_type = 'Garage';
+                break;
+            case '25':
+                $property_type = 'House Boat';
+                break;
+            case '26':
+                $property_type = 'Mobile Home';
+                break;
+            case '27':
+                $property_type = 'Parking';
+                break;
+            case '32':
+                $property_type = 'Equestrian';
+                break;
+            case '33':
+                $property_type = 'Unconverted Barn';
+                break;
+        }
+
     }
 
     if($echo)
@@ -425,36 +435,39 @@ function apf_property_type($echo = true) {
 /*    the ones that aren't empty 
 /*--------------------------------------------------------------------------*/
 function apf_the_property_seo_title($property_id = null) {
-    global $post;
-
-    $property_id = $post->ID;
     
-    // Number of bedrooms
-    $property_beds = get_field('property_bedrooms', $property_id);
+    global $post;
+    $property_id = $post->ID;
+    $property_seo_title = '';
 
-    // Property type
-    $property_type = apf_property_type(false);      
+    if(has_term('commercial', 'property_market', $property_id)) {
+     
+        $property_seo_title = 'Commercial property';
+
+    } else {
+    
+        // Number of bedrooms
+        $property_beds = get_field('property_bedrooms', $property_id);
+        if($property_beds != 0) { 
+            $property_seo_title .= $property_beds.' bedroom';
+        }
+
+        // Property type
+        $property_type = apf_property_type(false);
+        if($property_type) { 
+            $property_seo_title .= ' '.$property_type;
+        } else {
+            $property_seo_title .= ' property';
+        }
+
+    }
 
     // Check if sales or lettings
-    if(has_term('lettings', 'property_type', $property_id)) {
-        $property_branch = 'to let';
-    } elseif(has_term('sales', 'property_type', $property_id)) {
-        $property_branch = 'for sale';
-    }
-
-    if($property_beds != 0) { 
-        $property_beds = $property_beds.' bedroom ';
-    } else { 
-        $property_beds = '';
-    }
-
-    if($property_type) { 
-        $property_type = $property_type.' '.$property_branch;
+    if(has_term('to-let', 'property_department', $property_id)) {
+        $property_seo_title .= ' to let';
     } else {
-        $property_type = 'property '.$property_branch;
+        $property_seo_title .= ' for sale';
     }
-
-    $property_seo_title = $property_beds.$property_type;
 
     echo $property_seo_title;
     
@@ -480,15 +493,15 @@ function apf_the_property_status($echo = true, $html = true) {
             break;
         case 3:
             $color = ' apf__status__amber';
-            $property_status = has_term('lettings', 'property_type', $property_id) ? 'References Pending' : 'Under Offer';
+            $property_status = has_term('to-let', 'property_department', $property_id) ? 'References Pending' : 'Under Offer';
             break;
         case 4:
             $color = ' apf__status__red';
-            $property_status = has_term('lettings', 'property_type', $property_id) ? 'Let Agreed' : 'Sold STC';
+            $property_status = has_term('to-let', 'property_department', $property_id) ? 'Let Agreed' : 'Sold STC';
             break;
         case 5:
             $color = ' apf__status__red';
-            $property_status = has_term('lettings', 'property_type', $property_id) ? 'Let' : 'Sold';
+            $property_status = has_term('to-let', 'property_department', $property_id) ? 'Let' : 'Sold';
             break;
         case 6:
             $color = ' apf__status__red';
@@ -517,15 +530,15 @@ function apf_the_property_status($echo = true, $html = true) {
 /*    checks if the option to exclude Sold STC/Let Agreed has been
 /*    checked and acts accoringly 
 /*--------------------------------------------------------------------------*/
-function apf_property_search_exclude_status() {
+function apf_property_search_exclude_status($status) {
     
-    if($_SESSION["status"] == 'exclude') {
+    if($status == 'exclude') {
 
         $property_status = array(3, 4, 5, 6);
 
     } else { 
 
-        $property_status = '';;
+        $property_status = '';
     }
 
     return $property_status;

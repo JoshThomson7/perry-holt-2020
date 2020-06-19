@@ -8,8 +8,7 @@
 /*                                 PROPERTY                                 */
 /*--------------------------------------------------------------------------*/
 add_action( 'init', 'create_property_posttype', 4 );
-function create_property_posttype()
-{
+function create_property_posttype() {
     $labels = array(
         'name' => __( 'Properties' ),
         'singular_name' => __( 'Property' ),
@@ -38,10 +37,10 @@ function create_property_posttype()
         'menu_icon' => 'dashicons-admin-home',
         'hierarchical' => true,
         '_builtin' => false, // It's a custom post type, not built in!
-        'rewrite' => array( 'slug' => 'property/%property_type%/%property_area%', 'with_front' => true ),
+        'rewrite' => array( 'slug' => 'property/%property_market%/%property_department%/%property_area%', 'with_front' => true ),
         'query_var' => true,
         'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
-        'taxonomies' => array('property_type', 'property_area'),
+        'taxonomies' => array('property_market', 'property_area'),
       );
 
     register_post_type('property', $args);
@@ -54,10 +53,39 @@ function create_property_posttype()
 /*                                                2. TAXONOMIES                                                   */
 /*                                                                                                                */
 /*================================================================================================================*/
-// property_dept
-add_action( 'init', 'create_property_dept_taxonomies', 0 );
+// property_market
+add_action( 'init', 'create_property_market_taxonomies', 0 );
 
-function create_property_dept_taxonomies() {
+function create_property_market_taxonomies() {
+  // Add new taxonomy, make it hierarchical => true for categories-like taxonomies)
+  $labels = array(
+    'name' => _x( 'Markets', 'taxonomy general name' ),
+    'singular_name' => _x( 'Market', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Markets' ),
+    'all_items' => __( 'All Markets' ),
+    'parent_item' => __( 'Parent Markets' ),
+    'parent_item_colon' => __( 'Parent Markets:' ),
+    'edit_item' => __( 'Edit Market' ),
+    'update_item' => __( 'Update Market' ),
+    'add_new_item' => __( 'Add New Market' ),
+    'new_item_name' => __( 'New Market' ),
+    'menu_name' => __( 'Markets' ),
+  );
+
+  register_taxonomy('property_market', array('property'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'query_var' => true,
+    'public' => false,
+    'rewrite' => array( 'slug' => 'property', 'with_front' => true ),
+  ));
+}
+
+// property_department
+add_action( 'init', 'create_property_department_taxonomies', 0 );
+
+function create_property_department_taxonomies() {
   // Add new taxonomy, make it hierarchical => true for categories-like taxonomies)
   $labels = array(
     'name' => _x( 'Departments', 'taxonomy general name' ),
@@ -70,45 +98,16 @@ function create_property_dept_taxonomies() {
     'update_item' => __( 'Update Department' ),
     'add_new_item' => __( 'Add New Department' ),
     'new_item_name' => __( 'New Department' ),
-    'menu_name' => __( 'Department' ),
+    'menu_name' => __( 'Departments' ),
   );
 
-  register_taxonomy('property_dept',array('property'), array(
+  register_taxonomy('property_department', array('property'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
     'query_var' => true,
     'public' => false,
-    'rewrite' => false,
-  ));
-}
-
-// property_type
-add_action( 'init', 'create_property_type_taxonomies', 0 );
-
-function create_property_type_taxonomies() {
-  // Add new taxonomy, make it hierarchical => true for categories-like taxonomies)
-  $labels = array(
-    'name' => _x( 'Types', 'taxonomy general name' ),
-    'singular_name' => _x( 'Type', 'taxonomy singular name' ),
-    'search_items' =>  __( 'Search Types' ),
-    'all_items' => __( 'All Types' ),
-    'parent_item' => __( 'Parent Types' ),
-    'parent_item_colon' => __( 'Parent Types:' ),
-    'edit_item' => __( 'Edit Type' ),
-    'update_item' => __( 'Update Type' ),
-    'add_new_item' => __( 'Add New Type' ),
-    'new_item_name' => __( 'New Type' ),
-    'menu_name' => __( 'Types' ),
-  );
-
-  register_taxonomy('property_type',array('property'), array(
-    'hierarchical' => true,
-    'labels' => $labels,
-    'show_ui' => true,
-    'query_var' => true,
-    'public' => false,
-    'rewrite' => array( 'slug' => 'property', 'with_front' => true ),
+    'rewrite' => array( 'slug' => 'property/%property_market%', 'with_front' => true ),
   ));
 }
 
@@ -121,8 +120,7 @@ function create_property_type_taxonomies() {
 // Hook into the init action and call create_property_area_taxonomies when it fires
 add_action( 'init', 'create_property_area_taxonomies', 0 );
 
-function create_property_area_taxonomies()
-{
+function create_property_area_taxonomies() {
   // Add new taxonomy, make it hierarchical => true for categories-like taxonomies)
   $labels = array(
     'name' => _x( 'Areas', 'taxonomy general name' ),
@@ -144,7 +142,7 @@ function create_property_area_taxonomies()
     'show_ui' => true,
     'query_var' => true,
     'public' => false,
-    'rewrite' => array( 'slug' => 'property/%property_type%', 'with_front' => true ),
+    'rewrite' => array( 'slug' => 'property/%property_market%/%property_department%', 'with_front' => true ),
   ));
 }
 
@@ -162,14 +160,21 @@ function create_property_area_taxonomies()
 
 // Properties
 function filter_property_link($link, $post) {
-    if ($post->post_type != 'property')
+    if($post->post_type != 'property') {
         return $link;
+    }
 
-    if ($cats = get_the_terms($post->ID, 'property_type'))
-        $link = str_replace('%property_type%', array_pop($cats)->slug, $link);
+    if($cats = get_the_terms($post->ID, 'property_market')) {
+        $link = str_replace('%property_market%', array_pop($cats)->slug, $link);
+    }
 
-    if ($cats = get_the_terms($post->ID, 'property_area'))
+    if($cats = get_the_terms($post->ID, 'property_department')) {
+        $link = str_replace('%property_department%', array_pop($cats)->slug, $link);
+    }
+
+    if($cats = get_the_terms($post->ID, 'property_area')) {
        $link = str_replace('%property_area%', array_pop($cats)->slug, $link);
+    }
 
     return $link;
 }

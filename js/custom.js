@@ -20,6 +20,7 @@
 // @codekit-prepend "../lib/isotope/_isotope.pkgd.min.js";
 // @codekit-prepend "inc/_sticky-menu.js";
 // @codekit-prepend "../lib/blazy/_blazy.min.js";
+// @codekit-prepend "inc/_global.js";
 
 // Modules
 // @codekit-prepend "../modules/off-canvas-nav/js/_oc-nav.js";

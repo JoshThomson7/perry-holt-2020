@@ -104,7 +104,7 @@ $opening_times = new APF_Opening_Times;
                     <?php $brochure_num++; endwhile; ?>
             <?php endif; ?>
 
-            <li><a href="<?php echo apf_back_to_search_url(); ?>" title="Back to search"><i class="fal fa-search"></i>Back to search</a></li>
+            <li><a href="<?php echo apf_property_search_url(); ?>" title="Back to search"><i class="fal fa-search"></i>Back to search</a></li>
         </ul>
     </article>
 

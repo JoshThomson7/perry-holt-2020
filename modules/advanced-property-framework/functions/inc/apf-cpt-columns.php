@@ -25,8 +25,9 @@ function my_edit_property_columns( $columns ) {
 	$columns = array(
 		'cb' => '<input type="checkbox" />',
 		'property_img' => __( 'Image' ),
-		'title' => __( 'Property' ),
-		'property_type' => __( 'Type' ),
+        'title' => __( 'Property' ),
+        'property_market' => __( 'Market' ),
+		'property_department' => __( 'Department' ),
 		'property_area' => __( 'Area' ),
 		'property_price' => __( 'Price' ),
         'property_status' => __( 'Status' ),
@@ -58,12 +59,41 @@ function my_manage_property_columns( $column, $post_id ) {
 
 			}
 
-			break;
+            break;
+            
+        case 'property_market' :
 
-		case 'property_type' :
+            // Get the terms
+            $terms = get_the_terms( $post_id, 'property_market' );
+
+            // If terms were found
+            if ( !empty( $terms ) ) {
+
+                $out = array();
+
+                // Loop through each term, linking to the 'edit posts' page for the specific term
+                foreach ( $terms as $term ) {
+                    $out[] = sprintf( '<a href="%s">%s</a>',
+                        esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'property_market' => $term->slug ), 'edit.php' ) ),
+                        esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'property_market', 'display' ) )
+                    );
+                }
+
+                // Join the terms and separate them with a comma
+                echo join( ', ', $out );
+            }
+
+            // If no terms were found, output a default message
+            else {
+                _e( 'No type assigned' );
+            }
+
+            break;
+
+		case 'property_department' :
 
 			// Get the terms
-			$terms = get_the_terms( $post_id, 'property_type' );
+			$terms = get_the_terms( $post_id, 'property_department' );
 
 			// If terms were found
 			if ( !empty( $terms ) ) {
@@ -73,8 +103,8 @@ function my_manage_property_columns( $column, $post_id ) {
 				// Loop through each term, linking to the 'edit posts' page for the specific term
 				foreach ( $terms as $term ) {
 					$out[] = sprintf( '<a href="%s">%s</a>',
-						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'property_type' => $term->slug ), 'edit.php' ) ),
-						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'property_type', 'display' ) )
+						esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'property_department' => $term->slug ), 'edit.php' ) ),
+						esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'property_department', 'display' ) )
 					);
 				}
 

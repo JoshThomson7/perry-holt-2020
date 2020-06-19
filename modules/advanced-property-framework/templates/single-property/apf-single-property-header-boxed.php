@@ -2,7 +2,7 @@
 
             <div class="max__width flex">
                 <header class="apf__single__property__nav">
-                    <a href="<?php echo apf_back_to_search_url(); ?>" title="Back to search results"><span class="far fa-chevron-left"></span> <strong>Back to search results</strong></a>
+                    <a href="<?php echo apf_property_search_url(); ?>" title="Back to search results"><span class="far fa-chevron-left"></span> <strong>Back to search results</strong></a>
                     <a href="#" class="apf__single__property__nav__refine" title="Refine your search"><strong>Refine your search</strong> <span class="far fa-search"></span></a>
                 </header><!-- apf__single__property__nav -->
             </div><!-- max__width -->

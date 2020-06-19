@@ -3,7 +3,7 @@
     <div class="apf__properties__loading__overlay"></div>
 
     <div class="apf__results__map__wrap">
-        <div id="map"></div>
+        <div id="apf_map"></div>
         <div id="infowindow" class="closed empty"></div>
     </div><!-- apf__results__map__wrap -->
 

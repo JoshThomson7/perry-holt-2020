@@ -33,8 +33,6 @@ section {
 					@include breakpoint(papabear) { width:50%;}
 					@include breakpoint(brotherbear) { width:100%;}
 
-					@import 'apf-filter-form';
-
 					.apf__properties { display:flex; flex-wrap:wrap; margin:0 -10px; position:relative;
 
 						@import 'apf-loop';
