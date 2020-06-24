@@ -12,7 +12,7 @@
 */
 
 function apf_acf_init() {
-	acf_update_setting('google_api_key', 'AIzaSyC0UDVybdrKAaG1-Py_KaeqG9SPIZtCUfs');
+	acf_update_setting('google_api_key', 'AIzaSyC2zYyoDRhSuxh0a-Jgqhz8vLbBMxS9Yhw');
 }
 add_action('acf/init', 'apf_acf_init');
 

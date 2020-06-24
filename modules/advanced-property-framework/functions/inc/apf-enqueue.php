@@ -29,7 +29,7 @@ function apf_wp_head() {
 function apf_enqueue() {
 
 	// Google Maps
-	wp_enqueue_script('google-maps', 'http://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC0UDVybdrKAaG1-Py_KaeqG9SPIZtCUfs');
+	wp_enqueue_script('google-maps', 'http://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC2zYyoDRhSuxh0a-Jgqhz8vLbBMxS9Yhw');
     wp_enqueue_script('apf-global', apf_path(true).'assets/js/apf-min.js', array('jquery'), '', false);
 
     // style
