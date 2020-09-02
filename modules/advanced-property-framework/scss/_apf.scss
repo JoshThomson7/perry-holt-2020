@@ -19,7 +19,7 @@
 // Globals
 body {
     &.apf__single {
-        header.header { background: $primary; padding-bottom: 10px;}
+        header.header { background: $primary; padding-bottom: 0; border-bottom: 1px $border solid;}
     }
 
     &.apf__property__search {
@@ -44,5 +44,9 @@ section.banners {
     &.apf__banner__results,
     &.apf__banner__single { height: 10vh; min-height: 100px;
         .banner { height: 10vh; min-height: 100px;}
+    }
+
+    .apf__search { 
+        .apf__area__search { min-width: auto !important;}
     }
 }

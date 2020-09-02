@@ -9,10 +9,11 @@ $opening_times = new APF_Opening_Times;
 
     <?php
         // Get branch
-        $property_branch_id = get_field('property_branch_id');
+        $property_branch_id = get_field('property_branch');
         $branch_query = new WP_Query(array(
             'post_type'         => 'branch',
             'post_status'       => 'publish',
+            'posts_per_page'    => 1,
             'meta_query' => array(
                 array(
                     'key'       => 'branch_id',
@@ -22,7 +23,7 @@ $opening_times = new APF_Opening_Times;
             )
         ));
         while($branch_query->have_posts()) : $branch_query->the_post();
-            $attachment_id = get_post_thumbnail_id($post->ID);
+            $attachment_id = get_field('branch_image');
             $branch_image = vt_resize( $attachment_id,'' , 400, 264, true );
             $branch_address = get_field('branch_address');
     ?>

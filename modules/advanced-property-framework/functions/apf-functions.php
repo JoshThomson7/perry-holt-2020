@@ -17,7 +17,11 @@ require_once('inc/apf-enqueue.php');
 require_once('inc/apf-endpoints.php');
 require_once('inc/apf-acf-functions.php');
 require_once('inc/apf-ajax.php');
+
+// apps
 require_once('class-apf-settings.php');
+require_once(apf_path().'apps/apf-branches/functions/apf-branches-functions.php');
+require_once(apf_path().'apps/apf-update/functions/apf-update-ajax.php');
 
 $apf_settings = new APF_Settings();
 switch ($apf_settings->provider()) {
@@ -25,14 +29,10 @@ switch ($apf_settings->provider()) {
         require_once('providers/apf-jupix.php');
         break;
     
-    default:
-        # code...
+    case 'veco':
+        require_once('providers/apf-veco.php');
         break;
 }
-
-// apps
-require_once(apf_path().'/apps/apf-branches/functions/apf-branches-functions.php');
-require_once(apf_path().'/apps/apf-update/functions/apf-update-ajax.php');
 
 /*--------------------------------------------------------------------------*/
 /*    function apf_path()
@@ -127,22 +127,6 @@ function apf_body_class( $classes ) {
 
 }
 
-/*--------------------------------------------------------------------------*/
-/*    function apf_map_alter_query()
-/*    Alters the query on the map XML template to display
-/*    the right number of properties on Google map
-/*--------------------------------------------------------------------------*/
-/*function apf_map_alter_query( $query ){
-    global $apf_is_map; //Declared in templates/apf-xml.php
-
-    if( $apf_is_map == true ) {
-        $query->set('posts_per_page', $_SESSION['apf_show']);
-    }
-
-    return $query;
-}
-add_action( 'pre_get_posts', 'apf_map_alter_query' );*/
-
 
 /*--------------------------------------------------------------------------*/
 /*    function apf_featured_image_description()
@@ -170,8 +154,6 @@ function apf_property_search_url() {
 
 /*--------------------------------------------------------------------------*/
 /*    function apf_pagination()
-/*    returns the back to search URL based
-/*    on $_SESSION variables
 /*--------------------------------------------------------------------------*/
 function apf_pagination($pages = '', $range = 4, $apf_page = 1) {
     $showitems = ($range * 2)+1;
@@ -209,5 +191,3 @@ function apf_pagination($pages = '', $range = 4, $apf_page = 1) {
         echo "</div></div>\n";
     }
 }
-
-?>

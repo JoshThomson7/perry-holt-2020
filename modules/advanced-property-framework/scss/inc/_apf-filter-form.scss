@@ -29,7 +29,7 @@
 			i { font-size: 24px; color: darken($lightgrey, 20%);}
 
 			&.active {
-				i { color: $primary;}
+				i { color: #fff;}
 			}
 
 			&.apf__filter__refine { display:none;
@@ -45,7 +45,9 @@
 	}
 
 	.apf__results__filter__sort { display:flex; align-items: center; justify-content: flex-end;
-		@include breakpoint(mamabear) { width: 100%;}
+        @include breakpoint(mamabear) { width: 100%;}
+        
+        article { padding: 0 10px;}
 
 		form { display:flex; align-items:center;
 			@include breakpoint(mamabear) { flex-direction: column-reverse; width: 100%;}

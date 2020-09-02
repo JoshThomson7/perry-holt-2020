@@ -26,7 +26,7 @@ get_header();
                                 
                                 require_once('single-property/apf-single-property-floorplan.php');
                             
-                            elseif(get_query_var('video') && apf_has_vtour()):
+                            elseif(get_query_var('video') && (apf_has_vtour() || get_field('property_matterport')) ):
                                 
                                 require_once('single-property/apf-single-property-virtual-tour.php');
                         

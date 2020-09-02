@@ -793,7 +793,7 @@
 }
 .apf__search form .apf__results__filter .apf__results__filter__view a.active i,
 .apf__search form .apf__results__filter .apf__results__filter__view label.active i {
-  color: #555759;
+  color: #fff;
 }
 .apf__search form .apf__results__filter .apf__results__filter__view a.apf__filter__refine,
 .apf__search form .apf__results__filter .apf__results__filter__view label.apf__filter__refine {
@@ -822,6 +822,9 @@
   .apf__search form .apf__results__filter .apf__results__filter__sort {
     width: 100%;
   }
+}
+.apf__search form .apf__results__filter .apf__results__filter__sort article {
+  padding: 0 10px;
 }
 .apf__search form .apf__results__filter .apf__results__filter__sort form {
   display: flex;
@@ -1076,6 +1079,7 @@ section.apf.apf__combined .apf__results .apf__results__list .apf__properties art
   width: 100%;
   border-radius: 5px;
   box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
 section.apf.apf__combined .apf__results .apf__results__list .apf__properties article a.apf__property__img {
   display: block;
@@ -1119,7 +1123,7 @@ section.apf.apf__combined .apf__results .apf__results__list .apf__properties art
   transition: all 0.3s ease;
   opacity: 0;
   display: flex;
-  background: rgba(0, 47, 82, 0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 700px) {
   section.apf.apf__combined .apf__results .apf__results__list .apf__properties article a.apf__property__img .apf__property__img__overlay {
@@ -1146,7 +1150,7 @@ section.apf.apf__combined .apf__results .apf__results__list .apf__properties art
   opacity: 1;
   width: 50px;
   height: 50px;
-  color: #fff;
+  color: #002f52;
   font-size: 60px;
   margin: auto;
 }
@@ -1175,7 +1179,7 @@ section.apf.apf__combined .apf__results .apf__results__list .apf__properties art
 }
 section.apf.apf__combined .apf__results .apf__results__list .apf__properties article .apf__property__details__wrap .apf__property__details h3 {
   font-size: 26px;
-  color: #002f52;
+  color: #555759;
   padding-bottom: 5px;
   margin: 0;
   font-weight: 700;
@@ -1196,6 +1200,19 @@ section.apf.apf__combined .apf__results .apf__results__list .apf__properties art
   padding-bottom: 15px;
   margin: 0;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  line-height: normal;
+}
+section.apf.apf__combined .apf__results .apf__results__list .apf__properties article .apf__property__details__wrap .apf__property__details h5 small.new-home {
+  background: #002f52;
+  color: #555759;
+  font-size: 11px;
+  padding: 6px 9px;
+  border-radius: 5px;
+  margin-left: 10px;
+  min-width: 76px;
+  line-height: normal;
 }
 section.apf.apf__combined .apf__results .apf__results__list .apf__properties article .apf__property__details__wrap .apf__property__details p {
   font-size: 15px;
@@ -1255,16 +1272,13 @@ section.apf.apf__combined .apf__results .apf__results__list .apf__properties art
   text-align: center;
   font-size: 14px;
   font-weight: 800;
-  color: #002f52;
+  color: #555759;
   background: none;
   text-transform: uppercase;
   font-weight: 700;
 }
 section.apf.apf__combined .apf__results .apf__results__list .apf__properties article .apf__property__details__wrap .apf__property__meta a.apf__property__meta__action:first-child {
   border-left: 0;
-}
-section.apf.apf__combined .apf__results .apf__results__list .apf__properties article .apf__property__details__wrap .apf__property__meta a.apf__property__meta__action.arrow__link i {
-  color: #b20e12;
 }
 section.apf.apf__combined .apf__results .apf__results__list .apf__properties article.skeleton .apf__property__details__wrap .apf__property__details h3 {
   height: 25px;
@@ -1425,7 +1439,7 @@ section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__w
   position: absolute;
   width: 40px;
   height: 40px;
-  background: #b20e12;
+  background: #002f52;
   top: 0;
   left: -40px;
   border-radius: 25px 0 0 25px;
@@ -1436,7 +1450,7 @@ section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__w
   }
 }
 section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__wrap #infowindow .infowindow__img .infowindow-close i {
-  color: #fff;
+  color: #555759;
   text-align: center;
   line-height: 40px;
   font-size: 25px;
@@ -1544,7 +1558,7 @@ section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__w
   padding: 15px 20px;
   border-radius: 3px;
   width: 100%;
-  color: #fff;
+  color: #555759;
   text-transform: uppercase;
   background: #002f52;
   margin-right: 5px;
@@ -1798,7 +1812,7 @@ section.apf.apf__single__property {
   /* Details */
 }
 section.apf.apf__single__property .apf__single__property__header {
-  padding-top: 90px;
+  padding-top: 54px;
 }
 section.apf.apf__single__property .apf__single__property__header.boxed {
   /* Nav */
@@ -1939,7 +1953,7 @@ section.apf.apf__single__property .apf__single__property__header.boxed .apf__sin
   text-align: right;
   font-size: 36px;
   font-weight: 700;
-  color: #002f52;
+  color: #555759;
 }
 @media (max-width: 700px) {
   section.apf.apf__single__property .apf__single__property__header.boxed .apf__single__property__heading .apf__single__property__price .digits {
@@ -2488,13 +2502,13 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   margin-right: 10px;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.share {
-  background: #002f52;
+  background: #1f9fff;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.share h3 {
-  color: #fff;
+  color: #555759;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.share p {
-  color: #fff;
+  color: #555759;
   line-height: 20px;
   padding-bottom: 15px;
 }
@@ -2516,7 +2530,7 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.documents ul li a i {
   font-size: 20px;
   margin-right: 10px;
-  color: #fff;
+  color: #002f52;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.documents ul li a:hover {
   color: #002f52;
@@ -2706,6 +2720,7 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   width: 100%;
   border-radius: 5px;
   box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
 .apf__book__viewing__thanks article a.apf__property__img {
   display: block;
@@ -2749,7 +2764,7 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   transition: all 0.3s ease;
   opacity: 0;
   display: flex;
-  background: rgba(0, 47, 82, 0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 700px) {
   .apf__book__viewing__thanks article a.apf__property__img .apf__property__img__overlay {
@@ -2776,7 +2791,7 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   opacity: 1;
   width: 50px;
   height: 50px;
-  color: #fff;
+  color: #002f52;
   font-size: 60px;
   margin: auto;
 }
@@ -2805,7 +2820,7 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
 }
 .apf__book__viewing__thanks article .apf__property__details__wrap .apf__property__details h3 {
   font-size: 26px;
-  color: #002f52;
+  color: #555759;
   padding-bottom: 5px;
   margin: 0;
   font-weight: 700;
@@ -2826,6 +2841,19 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   padding-bottom: 15px;
   margin: 0;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  line-height: normal;
+}
+.apf__book__viewing__thanks article .apf__property__details__wrap .apf__property__details h5 small.new-home {
+  background: #002f52;
+  color: #555759;
+  font-size: 11px;
+  padding: 6px 9px;
+  border-radius: 5px;
+  margin-left: 10px;
+  min-width: 76px;
+  line-height: normal;
 }
 .apf__book__viewing__thanks article .apf__property__details__wrap .apf__property__details p {
   font-size: 15px;
@@ -2885,16 +2913,13 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   text-align: center;
   font-size: 14px;
   font-weight: 800;
-  color: #002f52;
+  color: #555759;
   background: none;
   text-transform: uppercase;
   font-weight: 700;
 }
 .apf__book__viewing__thanks article .apf__property__details__wrap .apf__property__meta a.apf__property__meta__action:first-child {
   border-left: 0;
-}
-.apf__book__viewing__thanks article .apf__property__details__wrap .apf__property__meta a.apf__property__meta__action.arrow__link i {
-  color: #b20e12;
 }
 .apf__book__viewing__thanks article.skeleton .apf__property__details__wrap .apf__property__details h3 {
   height: 25px;
@@ -3329,7 +3354,7 @@ section #branch_map {
   position: absolute;
   width: 40px;
   height: 40px;
-  background: #b20e12;
+  background: #002f52;
   top: 0;
   left: -40px;
   border-radius: 25px 0 0 25px;
@@ -3340,7 +3365,7 @@ section #branch_map {
   }
 }
 .apf__branches__map__wrap #infowindow .infowindow__img .infowindow-close i {
-  color: #fff;
+  color: #555759;
   text-align: center;
   line-height: 40px;
   font-size: 25px;
@@ -3448,7 +3473,7 @@ section #branch_map {
   padding: 15px 20px;
   border-radius: 3px;
   width: 100%;
-  color: #fff;
+  color: #555759;
   text-transform: uppercase;
   background: #002f52;
   margin-right: 5px;
@@ -3531,7 +3556,8 @@ section #branch_map {
 
 body.apf__single header.header {
   background: #555759;
-  padding-bottom: 10px;
+  padding-bottom: 0;
+  border-bottom: 1px #e5edef solid;
 }
 body.apf__property__search header.header .header__main .max__width {
   max-width: 100%;
@@ -3559,4 +3585,7 @@ section.banners.apf__banner__results, section.banners.apf__banner__single {
 section.banners.apf__banner__results .banner, section.banners.apf__banner__single .banner {
   height: 10vh;
   min-height: 100px;
+}
+section.banners .apf__search .apf__area__search {
+  min-width: auto !important;
 }

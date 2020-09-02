@@ -17,7 +17,7 @@
 			@include breakpoint(brotherbear) { min-width:100%;}
 
             label,
-			a { color: $primary; text-align:center; display:flex; justify-content:center; align-items:center; font-size: 16px; padding:0 12px; width:50%; background: darken($lightgrey, 5%); font-weight: 700; min-width: 104px; cursor: pointer;
+			a { color:$primary; text-align:center; display:flex; justify-content:center; align-items:center; font-size: 16px; padding:0 12px; width:50%; background: darken($lightgrey, 5%); font-weight: 700; min-width: 104px; cursor: pointer;
 				@include breakpoint(brotherbear) { padding:15px 0;}
 
 				&:hover { background: darken($lightgrey, 10%);}

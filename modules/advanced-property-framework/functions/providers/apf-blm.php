@@ -186,7 +186,7 @@ function apf_the_property_image($width = null, $height = null, $crop = true, $ec
         if($width && $height) {
 
             $property_image = vt_resize($attachment_id, '', $width, $height, $crop);
-            $property_image = $property_image[url];
+            $property_image = $property_image['url'];
 
         } else {
 
@@ -202,7 +202,7 @@ function apf_the_property_image($width = null, $height = null, $crop = true, $ec
         if($width && $height) {
 
             $property_image = vt_resize('', $attachment_id, $width, $height, $crop);
-            $property_image = $property_image[url];
+            $property_image = $property_image['url'];
 
         } else {
 
@@ -376,9 +376,9 @@ function apf_the_property_status($echo = true, $html = true) {
 /*    checks if the option to exclude Sold STC/Let Agreed has been
 /*    checked and acts accoringly
 /*--------------------------------------------------------------------------*/
-function apf_property_search_exclude_status() {
+function apf_property_search_exclude_status($status) {
 
-    if($_SESSION["apf_status"] == 'exclude') {
+    if($status == 'exclude') {
 
         $property_status = array('Sold STC', 'Sold STCM', 'Under Offer', 'Reserved', 'Let Agreed', 'Sold', 'Let');
 

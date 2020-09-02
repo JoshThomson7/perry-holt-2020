@@ -1,5 +1,5 @@
 <article<?php echo $apf_ajax_page; ?>>
-
+    
     <div class="apf__property__border">
 
         <a href="<?php the_permalink(); ?>" class="apf__property__img" title="<?php the_title(); ?>" style="background-image:url('<?php apf_the_property_image(null, null, false, true); ?>');">

@@ -51,7 +51,7 @@ function my_manage_branch_columns( $column, $post_id ) {
 
 			/* If there is a photo, show it. */
 			else
-				echo '<a href="'.get_admin_url().'post.php?post='.$post_id.'&action=edit"><img src="'.$new_home_img[url].'"" /></a>';
+				echo '<a href="'.get_admin_url().'post.php?post='.$post_id.'&action=edit"><img src="'.$new_home_img['url'].'"" /></a>';
 
 			break;
 

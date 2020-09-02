@@ -30,13 +30,22 @@ $apf_settings = new APF_Settings();
 
     <div class="apf__results__filter__sort">
 
+        <?php if($apf_settings->search_new_home()): ?>
+            <article>
+                <input type="checkbox" id="apf_new_homes" name="apf_new_homes" value="true"<?php if($apf_new_homes == 'true') { echo " checked";} ?>>
+                <label for="apf_new_homes" class="apf__ajax__trigger apf__new__homes">Show New Homes only</label>
+            </article>
+        <?php endif; ?>
+
         <?php if($apf_settings->search_hide_gone()): ?>
-            <input type="checkbox" id="apf_status" name="apf_status" class="apf__filter__status" value="exclude"<?php if($apf_status == 'exclude') { echo " checked";} ?>>
-            <label for="apf_status" class="apf__ajax__trigger apf__status">Hide Sold, Sold STC &amp; Under offer</label>
+            <article>
+                <input type="checkbox" id="apf_status" name="apf_status" class="apf__filter__status" value="exclude"<?php if($apf_status == 'exclude') { echo " checked";} ?>>
+                <label for="apf_status" class="apf__ajax__trigger apf__status">Hide Sold, Sold STC &amp; Under offer</label>
+            </article>
         <?php endif; ?>
 
         <?php
-            $branches_query = new WP_Query(array(
+            /*$branches_query = new WP_Query(array(
                 'post_type' => 'branch',
                 'post_status' => 'publish',
                 'posts_per_page' => -1
@@ -50,12 +59,12 @@ $apf_settings = new APF_Settings();
                     <option value="<?php the_field('branch_id'); ?>"><?php the_title(); ?></option>
                 <?php endwhile; ?>
             </select>
-        <?php endif; ?>
+        <?php endif;*/ ?>
 
         <?php if($apf_settings->search_sorting_filters()): ?>
             <select name="apf_order">
                 <?php foreach($apf_settings->search_sorting_filters() as $filter): ?>
-                    <option value="<?php echo $filter['value']; ?>"<?php if($_SESSION["order"] == $filter['value']): ?> selected="selected"<?php endif; ?>><?php echo $filter['label'];  ?></option>
+                    <option value="<?php echo $filter['value']; ?>"><?php echo $filter['label'];  ?></option>
                 <?php endforeach; ?>
             </select>
         <?php endif; ?>

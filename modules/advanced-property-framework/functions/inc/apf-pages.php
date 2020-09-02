@@ -16,7 +16,8 @@ function apf_pages() {
             'name'  => 'property-search',
             'title' => 'Property Search',
             'child' => array(
-                'xml' => 'XML'
+                'xml' => 'XML',
+                'import' => 'Import'
             )
         ),
         array(

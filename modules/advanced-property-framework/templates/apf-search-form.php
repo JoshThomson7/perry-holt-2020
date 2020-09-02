@@ -43,23 +43,25 @@ $departments = $apf_settings->departments();
             <input type="hidden" name="apf_dept" value="<?php echo $departments[0]['value']; ?>"/>
         <?php endif; ?>
 
-        <input type="text" name="apf_location" placeholder="Area, postcode, town or street" class="apf__area__search" value="<?php echo $_SESSION["area_search"]; ?>" />
+        <input type="text" name="apf_location" placeholder="Area, postcode, town or street" class="apf__area__search" value="" />
 
         <div class="apf__search__selects">
-            <div class="apf__select__wrap">
-                <select name="apf_minprice" id="apf_minprice" class="apf__select apf__minprice"></select>
-                <span class="fal fa-chevron-down"></span>
-            </div><!-- apf__select__wrap -->
-
-            <div class="apf__select__wrap">
-                <select name="apf_maxprice" id="apf_maxprice" class="apf__select apf__maxprice"></select>
-                <span class="fal fa-chevron-down"></span>
-            </div><!-- apf__select__wrap -->
-
             <?php if(is_front_page()): ?>
+                <input type="hidden" name="apf_minprice" value="0" />
+                <input type="hidden" name="apf_maxprice" value="9999999999" />            
                 <input type="hidden" name="apf_minbeds" value="0" />
                 <input type="hidden" name="apf_maxbeds" value="100" />
             <?php else: ?>
+                <div class="apf__select__wrap">
+                    <select name="apf_minprice" id="apf_minprice" class="apf__select apf__minprice"></select>
+                    <span class="fal fa-chevron-down"></span>
+                </div><!-- apf__select__wrap -->
+
+                <div class="apf__select__wrap">
+                    <select name="apf_maxprice" id="apf_maxprice" class="apf__select apf__maxprice"></select>
+                    <span class="fal fa-chevron-down"></span>
+                </div><!-- apf__select__wrap -->
+
                 <div class="apf__select__wrap">
                     <select name="apf_minbeds" class="apf__select apf__minbeds">
                         <option value="0">Min beds</option>
@@ -97,10 +99,12 @@ $departments = $apf_settings->departments();
                 </div><!-- apf__select__wrap -->
             <?php endif; ?>
         </div><!-- apf__search__selects -->
-
-        <button type="submit" class="apf__search__button apf-fetch<?php if(!apf_is_property_search()) { echo ' apf-json'; } ?>">
-            <span class="fal fa-search"></span>
-        </button>
+        
+        <?php if(!is_front_page()): ?>
+            <button type="submit" class="apf__search__button apf-fetch<?php if(!apf_is_property_search()) { echo ' apf-json'; } ?>">
+                <span class="fal fa-search"></span>
+            </button>
+        <?php endif; ?>
 
         <?php if(is_page('property-search')): ?>
             <?php require_once('apf-filter-form.php'); ?>

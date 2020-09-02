@@ -14,7 +14,6 @@ get_header();
 global $post, $wp_query;
 
 require_once(get_stylesheet_directory().'/modules/advanced-video-banners/templates/avb-inner.php');
-require_once('apf-query.php');
 ?>
 
     <section class="apf apf__combined">
@@ -24,7 +23,7 @@ require_once('apf-query.php');
         <div class="apf__results">
 
             <div class="apf__results__list">
-                <div id="apf_response" class="apf__properties"></div>
+                <div class="apf__properties"></div>
             </div><!-- apf__results__list -->
 
             <?php require_once('apf-map.php'); ?>

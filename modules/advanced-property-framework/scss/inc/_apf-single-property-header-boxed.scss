@@ -7,7 +7,7 @@
 *	@version 1.0
 */
 
-.apf__single__property__header { padding-top: 90px;
+.apf__single__property__header { padding-top: 54px;
 
 	&.boxed {
 
@@ -61,7 +61,7 @@
 
 				@include breakpoint(mamabear) { float:none; clear:both; margin:20px 0; border-bottom:none;}
 
-				.digits { padding:0 0 7px 10px; text-align:right; font-size:36px; font-weight: 700; color: $secondary;
+				.digits { padding:0 0 7px 10px; text-align:right; font-size:36px; font-weight: 700; color: $primary;
 
 					@include breakpoint(mamabear) { background:none; padding:0; text-align:center;}
 

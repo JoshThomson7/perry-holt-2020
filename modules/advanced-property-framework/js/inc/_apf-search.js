@@ -326,7 +326,7 @@
                             $(el).trigger('click');
 
                         } else if( $(el).is(':checkbox') && $(el).val() === value ) {
-                            $(el).trigger('click');
+                            $(el).attr('checked', 'checked');
                             
                         } else if($(el).is(':text')) {
                             $(el).val(value);

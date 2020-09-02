@@ -98,4 +98,15 @@ class APF_Settings {
 
     }
 
+    /**
+     * Whether to show the "New Homes only" switch
+     * 
+     * @return bool
+     */
+    public function search_new_home() {
+
+        return get_field('apf_search_new_homes', 'option');
+
+    }
+
 }

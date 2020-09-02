@@ -21,7 +21,10 @@ function apf_templates($page_template) {
 		$page_template = apf_path() . 'templates/apf-search-results-combined.php';
 
 	} elseif(is_page('property-search/xml')) {
-		$page_template = apf_path() . 'templates/apf-xml.php';
+        $page_template = apf_path() . 'templates/apf-xml.php';
+        
+    } elseif(is_page('property-search/import')) {
+        $page_template = apf_path() . 'apps/apf-import/index.php';
 
     } elseif(is_page('thank-you-for-arranging-a-viewing')) {
 		$page_template = apf_path() . 'templates/apf-book-viewing-thanks.php';

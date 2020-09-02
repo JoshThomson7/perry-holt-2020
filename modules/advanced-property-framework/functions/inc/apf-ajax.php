@@ -26,6 +26,7 @@ function fetchProperties($data) {
 	$apf_view = isset($search_params['apf_view']) && !empty($search_params['apf_view']) ? $search_params['apf_view'] : 'grid';
 	$apf_order = isset($search_params['apf_order']) && !empty($search_params['apf_order']) ? $search_params['apf_order'] : 'price_desc';
     $apf_status = isset($search_params['apf_status']) && !empty($search_params['apf_status']) ? $search_params['apf_status'] : '';
+    $apf_new_homes = isset($search_params['apf_new_homes']) && !empty($search_params['apf_new_homes']) ? $search_params['apf_new_homes'] : '';
     $apf_branch = isset($search_params['apf_branch']) && !empty($search_params['apf_branch']) ? $search_params['apf_branch'] : '';
 	$apf_page = isset($search_params['apf_page']) && !empty($search_params['apf_page']) ? $search_params['apf_page'] : 1;
     
@@ -65,17 +66,24 @@ function fetchProperties($data) {
                 'compare'   => 'BETWEEN',
                 'type'      => 'numeric'
             ),
-            // array(
-            //     'key'       => 'property_status',
-            //     'value'     => apf_property_search_exclude_status($apf_status),
-            //     'compare'   => 'NOT IN',
-            // )
+            array(
+                'key'       => 'property_status',
+                'value'     => apf_property_search_exclude_status($apf_status),
+                'compare'   => 'NOT IN',
+            )
         ),
         'posts_per_page'    => 16,
         'paged'             => $apf_page,
         'fields'            => 'ids'
     );
 
+    if($apf_new_homes === 'true') {
+        array_push($args['meta_query'], array(
+            'key'       => 'property_new_home',
+            'value'     => 'true',
+            'compare'   => '=',
+        ));
+    }
 
     switch ($apf_order) {
         case 'price_asc':

@@ -84,10 +84,10 @@
             }
         }
 
-        &.share { background: $secondary;
+        &.share { background: lighten($secondary, 40%);
 
-            h3 { color: #fff;}
-            p { color: #fff; line-height:20px; padding-bottom:15px;}
+            h3 { color: $primary;}
+            p { color: $primary; line-height:20px; padding-bottom:15px;}
 
         }
 
@@ -98,7 +98,7 @@
             ul {
                 li { padding-bottom:10px;
                     a { font-size:15px; color: #fff; display:flex; align-items:center;
-                        i { font-size:20px; margin-right:10px; color: #fff}
+                        i { font-size:20px; margin-right:10px; color: $secondary}
 
                         &:hover { color: $secondary;}
                     }

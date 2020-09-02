@@ -3,7 +3,7 @@
             <div class="max__width flex">
                 <header class="apf__single__property__nav">
                     <a href="<?php echo apf_property_search_url(); ?>" title="Back to search results"><span class="far fa-chevron-left"></span> <strong>Back to search results</strong></a>
-                    <a href="#" class="apf__single__property__nav__refine" title="Refine your search"><strong>Refine your search</strong> <span class="far fa-search"></span></a>
+                    <!-- <a href="#" class="apf__single__property__nav__refine" title="Refine your search"><strong>Refine your search</strong> <span class="far fa-search"></span></a> -->
                 </header><!-- apf__single__property__nav -->
             </div><!-- max__width -->
 
@@ -66,7 +66,7 @@
 
                         <li><a href="<?php echo $property_map; ?>" title="Maps"<?php echo $property_map_scroll; ?>><span class="fi flaticon-gps"></span><strong>Maps</strong></a></li>
 
-                        <?php if(apf_has_vtour()): ?>
+                        <?php if(apf_has_vtour() || get_field('property_matterport')): ?>
                             <li><a href="<?php echo get_permalink($post->ID); ?>video/" title="Virtual Tour"<?php if(get_query_var('video')): ?> class="active"<?php endif; ?>><span class="fi flaticon-video-camera"></span><strong>Virtual Tour</strong></a></li>
                         <?php endif; ?>
 

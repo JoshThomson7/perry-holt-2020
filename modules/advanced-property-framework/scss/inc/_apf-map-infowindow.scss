@@ -18,10 +18,10 @@
     .infowindow__img { position:relative;
         @include breakpoint(mamabear) { width:40%; float:left; margin-right:10px;}
 
-        .infowindow-close { position:absolute; width:40px; height:40px; background:$quaternary; top:0; left:-40px; border-radius: 25px 0 0 25px;
+        .infowindow-close { position:absolute; width:40px; height:40px; background:$secondary; top:0; left:-40px; border-radius: 25px 0 0 25px;
             @include breakpoint(mamabear) { display:none;}
 
-            i { color:#fff; text-align:center; line-height:40px; font-size:25px; display:block;}
+            i { color:$primary; text-align:center; line-height:40px; font-size:25px; display:block;}
 
             &:hover { background: lighten($secondary, 3%);}
         }
@@ -59,7 +59,7 @@
         }
     }
 
-    .infowindow__fom { font-size:16px; font-weight:700; display:flex; align-items:center; justify-content:center; padding:15px 20px; border-radius:3px; width:100%; color:#fff; text-transform:uppercase; background:$secondary; margin-right:5px; margin-top:20px;
+    .infowindow__fom { font-size:16px; font-weight:700; display:flex; align-items:center; justify-content:center; padding:15px 20px; border-radius:3px; width:100%; color:$primary; text-transform:uppercase; background:$secondary; margin-right:5px; margin-top:20px;
 
         @include breakpoint(mamabear) { display:none;}
 

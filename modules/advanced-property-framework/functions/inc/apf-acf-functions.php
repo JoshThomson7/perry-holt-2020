@@ -12,7 +12,8 @@
 */
 
 function apf_acf_init() {
-	acf_update_setting('google_api_key', 'AIzaSyC2zYyoDRhSuxh0a-Jgqhz8vLbBMxS9Yhw');
+    $apf_settings = new APF_Settings();
+	acf_update_setting('google_api_key', $apf_settings->google_maps_api_key());
 }
 add_action('acf/init', 'apf_acf_init');
 
@@ -22,7 +23,7 @@ add_action('acf/init', 'apf_acf_init');
 /*  the lat/long data into separate custom
 /*  fields when property data is saved.
 * -------------------------------------------*/
-function get_property_map_data($post_id){
+function get_property_map_data($post_id) {
 
 	// Check if this is a clinic post
 	if(get_post_type($post_id) == 'property'){
