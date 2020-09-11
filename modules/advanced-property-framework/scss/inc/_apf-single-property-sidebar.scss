@@ -10,15 +10,15 @@
 
     article { margin-bottom:20px; padding:20px; border-radius: 3px;
 
-        h3 {  font-size:24px; padding-bottom:15px; font-weight: 700;}
-        p { font-size:16px; padding-bottom:15px;
+        h3 {  font-size: 21px; padding-bottom:15px; font-weight: 700;}
+        p { font-size:15px; padding-bottom:15px;
             strong { font-weight: 700;}
         }
 
         &.viewing { background: $secondary;
 
-            h3 { color: $primary;}
-            p { color: $primary;}
+            h3 { color: #fff;}
+            p { color: #fff;}
 
             ul {
                 li {
@@ -30,8 +30,8 @@
         }
 
         &.branch { background: $lightgrey;
-            h3 { color: $primary;}
-            h4 { font-size: 18px; color: $primary; margin-bottom: 20px; font-weight: 700;}
+            h3 { color: $secondary;}
+            h4 { font-size: 18px; color: $secondary; margin-bottom: 20px; font-weight: 700;}
 
             .branch__img { margin-bottom: 20px;}
 
@@ -75,7 +75,7 @@
         }
 
         &.transport { background: $lightgrey;
-            h3 { color: $primary;}
+            h3 { color: $secondary;}
 
             ul {
                 li { padding-bottom:10px; color: $text; display: flex; align-items: center; font-weight: 600;
@@ -84,20 +84,19 @@
             }
         }
 
-        &.share { background: lighten($secondary, 40%);
-
-            h3 { color: $primary;}
-            p { color: $primary; line-height:20px; padding-bottom:15px;}
+        &.share { background: $lightgrey;
+            h3 { color: $secondary;}
+            p { color: $text; line-height:20px; padding-bottom:15px;}
 
         }
 
-        &.documents { background: $primary;
+        &.documents { background: $lightgrey;
 
-            h3 { color: #fff;}
+            h3 { color: $secondary;}
 
             ul {
                 li { padding-bottom:10px;
-                    a { font-size:15px; color: #fff; display:flex; align-items:center;
+                    a { font-size:15px; color:$secondary; display:flex; align-items:center;
                         i { font-size:20px; margin-right:10px; color: $secondary}
 
                         &:hover { color: $secondary;}
@@ -113,7 +112,7 @@
 
 }
 
-.apf__book__viewing__button { background: $primary; color: #fff; font-size: 20px; font-weight: 700; text-align:center; display:flex; align-items:center; justify-content:center; padding:20px 15px 20px; margin-top:10px; border-radius: 3px;
+.apf__book__viewing__button { background: $quaternary; color: #fff; font-size: 20px; font-weight: 700; text-align:center; display:flex; align-items:center; justify-content:center; padding:20px 15px 20px; margin-top:10px; border-radius: 3px;
 
     @include breakpoint(babybear) { margin:0;}
 

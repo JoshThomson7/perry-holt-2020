@@ -567,7 +567,7 @@
   line-height: 41px;
   color: #6b8aa2;
   font-size: 16px;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 5px;
   flex-grow: 2;
   min-width: 310px;
@@ -670,7 +670,7 @@
   color: #6b8aa2;
   letter-spacing: -0.5px;
   background-size: 31px;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Montserrat", sans-serif;
   padding-left: 5px;
   background: none;
   font-weight: 600;
@@ -700,7 +700,7 @@
 }
 .apf__search form .apf__search__button {
   flex-grow: 1;
-  background: #002f52;
+  background: #b20e12;
   border: none;
   cursor: pointer;
   text-align: center;
@@ -709,16 +709,16 @@
   font-size: 28px;
   color: #fff;
   padding: 0 25px;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 5px;
   transition: all 0.3s ease;
   max-width: 165px;
   border-radius: 3px;
 }
 .apf__search form .apf__search__button:hover {
-  background: #003861;
+  background: #c00f13;
   transition: all 0.3s ease;
-  color: #555759;
+  color: #fff;
 }
 @media (max-width: 700px) {
   .apf__search form .apf__search__button {
@@ -891,7 +891,7 @@
   top: 2px;
 }
 .apf__search form .apf__results__filter .apf__results__filter__sort select {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Montserrat", sans-serif;
   border: none;
   padding: 16px 50px 13px 15px;
   font-size: 16px;
@@ -1179,7 +1179,7 @@ section.apf.apf__combined .apf__results .apf__results__list .apf__properties art
 }
 section.apf.apf__combined .apf__results .apf__results__list .apf__properties article .apf__property__details__wrap .apf__property__details h3 {
   font-size: 26px;
-  color: #555759;
+  color: #002f52;
   padding-bottom: 5px;
   margin: 0;
   font-weight: 700;
@@ -1195,11 +1195,11 @@ section.apf.apf__combined .apf__results .apf__results__list .apf__properties art
   font-size: 20px;
 }
 section.apf.apf__combined .apf__results .apf__results__list .apf__properties article .apf__property__details__wrap .apf__property__details h5 {
-  font-size: 16px;
+  font-size: 14px;
   color: #6b8aa2;
   padding-bottom: 15px;
   margin: 0;
-  font-weight: 700;
+  font-weight: 500;
   display: flex;
   align-items: center;
   line-height: normal;
@@ -1272,7 +1272,7 @@ section.apf.apf__combined .apf__results .apf__results__list .apf__properties art
   text-align: center;
   font-size: 14px;
   font-weight: 800;
-  color: #555759;
+  color: #b20e12;
   background: none;
   text-transform: uppercase;
   font-weight: 700;
@@ -1786,8 +1786,8 @@ section .apf__list__map__view__mobile a {
 }
 .apf__pagination .apf__current__page {
   padding: 16px 18px 12px;
-  background: #002f52;
-  color: #555759;
+  background: #b20e12;
+  color: #fff;
   border-radius: 3px;
   font-weight: 700;
 }
@@ -1891,9 +1891,10 @@ section.apf.apf__single__property .apf__single__property__header.boxed .apf__sin
   }
 }
 section.apf.apf__single__property .apf__single__property__header.boxed .apf__single__property__heading .apf__single__property__title h1 {
-  font-size: 36px;
-  color: #555759;
+  font-size: 29px;
+  color: #002f52;
   padding-bottom: 10px;
+  font-weight: 600;
 }
 @media (max-width: 700px) {
   section.apf.apf__single__property .apf__single__property__header.boxed .apf__single__property__heading .apf__single__property__title h1 {
@@ -1951,9 +1952,9 @@ section.apf.apf__single__property .apf__single__property__header.boxed .apf__sin
 section.apf.apf__single__property .apf__single__property__header.boxed .apf__single__property__heading .apf__single__property__price .digits {
   padding: 0 0 7px 10px;
   text-align: right;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 700;
-  color: #555759;
+  color: #b20e12;
 }
 @media (max-width: 700px) {
   section.apf.apf__single__property .apf__single__property__header.boxed .apf__single__property__heading .apf__single__property__price .digits {
@@ -2016,7 +2017,7 @@ section.apf.apf__single__property .apf__single__property__header.boxed .apf__sin
   display: flex;
   padding: 15px 20px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   color: #6b8aa2;
   border-right: 1px solid #e5edef;
   flex-grow: 1;
@@ -2062,7 +2063,10 @@ section.apf.apf__single__property .apf__single__property__header.boxed .apf__sin
 }
 section.apf.apf__single__property .apf__single__property__header.boxed .apf__single__property__tabs ul li a.active {
   background: #f5f8f9;
-  color: #555759;
+  color: #002f52;
+}
+section.apf.apf__single__property .apf__single__property__header.boxed .apf__single__property__tabs ul li a.active strong {
+  font-weight: 700;
 }
 @media (max-width: 900px) {
   section.apf.apf__single__property .apf__single__property__header.boxed .apf__single__property__tabs ul li.book__viewing__tab {
@@ -2226,16 +2230,22 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   margin-bottom: 0;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__content article h2 {
-  font-size: 28px;
-  color: #555759;
+  font-size: 23px;
+  color: #002f52;
   padding-bottom: 25px;
-  font-weight: 500;
+  font-weight: 700;
+}
+section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__content article h4 {
+  font-size: 17px;
+  color: #002f52;
+  padding-bottom: 21px;
+  font-weight: 700;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__content article p {
-  font-size: 17px;
+  font-size: 15px;
   color: #6b8aa2;
   padding-bottom: 20px;
-  line-height: 30px;
+  line-height: 25px;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__content article p br:first-of-type {
   display: none;
@@ -2381,12 +2391,12 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   border-radius: 3px;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article h3 {
-  font-size: 24px;
+  font-size: 21px;
   padding-bottom: 15px;
   font-weight: 700;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article p {
-  font-size: 16px;
+  font-size: 15px;
   padding-bottom: 15px;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article p strong {
@@ -2396,10 +2406,10 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   background: #002f52;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.viewing h3 {
-  color: #555759;
+  color: #fff;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.viewing p {
-  color: #555759;
+  color: #fff;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.viewing ul li a {
   font-size: 14px;
@@ -2411,11 +2421,11 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   background: #f5f8f9;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.branch h3 {
-  color: #555759;
+  color: #002f52;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.branch h4 {
   font-size: 18px;
-  color: #555759;
+  color: #002f52;
   margin-bottom: 20px;
   font-weight: 700;
 }
@@ -2488,7 +2498,7 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   background: #f5f8f9;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.transport h3 {
-  color: #555759;
+  color: #002f52;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.transport ul li {
   padding-bottom: 10px;
@@ -2502,28 +2512,28 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   margin-right: 10px;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.share {
-  background: #1f9fff;
+  background: #f5f8f9;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.share h3 {
-  color: #555759;
+  color: #002f52;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.share p {
-  color: #555759;
+  color: #6b8aa2;
   line-height: 20px;
   padding-bottom: 15px;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.documents {
-  background: #555759;
+  background: #f5f8f9;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.documents h3 {
-  color: #fff;
+  color: #002f52;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.documents ul li {
   padding-bottom: 10px;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__single__property__sidebar article.documents ul li a {
   font-size: 15px;
-  color: #fff;
+  color: #002f52;
   display: flex;
   align-items: center;
 }
@@ -2536,7 +2546,7 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   color: #002f52;
 }
 section.apf.apf__single__property .apf__single__property__details .apf__single__property__content__wrap .apf__book__viewing__button {
-  background: #555759;
+  background: #b20e12;
   color: #fff;
   font-size: 20px;
   font-weight: 700;
@@ -2820,7 +2830,7 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
 }
 .apf__book__viewing__thanks article .apf__property__details__wrap .apf__property__details h3 {
   font-size: 26px;
-  color: #555759;
+  color: #002f52;
   padding-bottom: 5px;
   margin: 0;
   font-weight: 700;
@@ -2836,11 +2846,11 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   font-size: 20px;
 }
 .apf__book__viewing__thanks article .apf__property__details__wrap .apf__property__details h5 {
-  font-size: 16px;
+  font-size: 14px;
   color: #6b8aa2;
   padding-bottom: 15px;
   margin: 0;
-  font-weight: 700;
+  font-weight: 500;
   display: flex;
   align-items: center;
   line-height: normal;
@@ -2913,7 +2923,7 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   text-align: center;
   font-size: 14px;
   font-weight: 800;
-  color: #555759;
+  color: #b20e12;
   background: none;
   text-transform: uppercase;
   font-weight: 700;

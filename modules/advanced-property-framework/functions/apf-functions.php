@@ -29,6 +29,7 @@ switch ($apf_settings->provider()) {
         require_once('providers/apf-jupix.php');
         break;
     
+    case 'agencypilot':
     case 'veco':
         require_once('providers/apf-veco.php');
         break;

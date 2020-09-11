@@ -40,7 +40,7 @@
 			@include breakpoint(mamabear) { flex-direction:column; text-align:center; padding:10px 0 0;}
 
 			.apf__single__property__title {
-				h1 { font-size:36px; color: $primary; padding-bottom:10px;
+				h1 { font-size: 29px; color: $secondary; padding-bottom:10px; font-weight: 600;
 					@include breakpoint(mamabear) { float:none; font-size:26px; padding-bottom:10px;}
 
 					span { font-size:18px; clear:both; display:block; padding-top:5px; color: $text;}
@@ -61,7 +61,7 @@
 
 				@include breakpoint(mamabear) { float:none; clear:both; margin:20px 0; border-bottom:none;}
 
-				.digits { padding:0 0 7px 10px; text-align:right; font-size:36px; font-weight: 700; color: $primary;
+				.digits { padding:0 0 7px 10px; text-align:right; font-size:32px; font-weight: 700; color: $quaternary;
 
 					@include breakpoint(mamabear) { background:none; padding:0; text-align:center;}
 
@@ -97,7 +97,7 @@
 
 					@include breakpoint(brotherbear) { display:table-cell; float:none;}
 
-					a { display:flex; padding:15px 20px; text-align:center; font-size:16px; color:$text; border-right:1px solid darken($lightgrey, 5%); flex-grow:1; align-items:center; justify-content:center;
+					a { display:flex; padding:15px 20px; text-align:center; font-size:14px; color:$text; border-right:1px solid darken($lightgrey, 5%); flex-grow:1; align-items:center; justify-content:center;
 
 						@include breakpoint(brotherbear) { padding:15px;}
 						@include breakpoint(babybear) { padding:14px;
@@ -114,7 +114,9 @@
 							@include breakpoint(brotherbear) { display:none;}
 						}
 
-						&.active { background:$lightgrey; color:$primary;}
+                        &.active { background:$lightgrey; color:$secondary;
+                            strong { font-weight: 700;}
+                        }
 					}
 
 					&.book__viewing__tab {

@@ -28,17 +28,7 @@ class APFI_Utils {
                 self::array_to_xml($value, $subnode, $key);
 
             } elseif($value !== '' && !empty($value)) {
-                $xml_data->addChild("$key",htmlspecialchars("$value"));
-            }
-
-            if($key === 'WeeklyRent') {
-                $xml_data->addChild("Department",htmlspecialchars('To let'));
-                $price = round(($value * 52) / 12, 2, PHP_ROUND_HALF_UP);
-                $xml_data->addChild("Price",htmlspecialchars($price));
-
-            } elseif($key === 'SalePrice') {
-                $xml_data->addChild("Department",htmlspecialchars('For sale'));
-                $xml_data->addChild("Price",htmlspecialchars($value));
+                $xml_data->addChild($key, htmlspecialchars($value));
             }
         }
     }

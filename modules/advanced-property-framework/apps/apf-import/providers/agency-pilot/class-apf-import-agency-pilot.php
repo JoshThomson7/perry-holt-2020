@@ -38,6 +38,7 @@ class APFI_Agency_Pilot {
 
         $dom = dom_import_simplexml($xml_data)->ownerDocument;
         $dom = new DOMDocument('1.0');
+        $dom->encoding = 'UTF-8';
         $dom->preserveWhiteSpace = false;
         $dom->formatOutput = true;
         $dom->loadXML($xml_data->asXML());
@@ -143,14 +144,21 @@ class APFI_Agency_Pilot {
             $property_data->PropertyID = $property->ID;
             $property_data->Market = $this->propertyMarket($property->Residential);
             $property_data->Department = $this->propertyDepartment($property->Tenure->ForSale);
-            $property_data->Type = '';
+            $property_data->BranchID = 'PH001'; // Hard-coded
+            $property_data->Type = ucwords($property->Additional->BrochureHeader);
             $property_data->Status = $property->MarketStatus->Name;
             $property_data->Price = $this->propertyPrice($property);
             $property_data->Title = $property->Address->DisplayAddress;
             $property_data->Address = $this->propertyAddress($property->Address);
-            //$property_data->Branch = $this->propertyBranch($property->BranchDetails);
+            $property_data->AddressFull = $property->Address;
+            $property_data->Lat = $property->Address->Longitude;
+            $property_data->Lng = $property->Address->Longitude;
+            $property_data->MainImage = $this->propertyMainImage($property->Photos);
             $property_data->Images = $this->propertyImages($property->Photos);
-            $property_data->Description = $property->Description;
+            $property_data->Summary = $property->Description;
+            $property_data->About = $this->propertyAbout($property->Additional->Info);
+            $property_data->Features = $this->propertyFeatures($property->Additional->Bullets);
+            $property_data->Brochure = $this->propertyBrochure($property->DocumentMedia);
             $property_data->EPC = $this->propertyEPC($property->DocumentMedia);
             
             array_push($properties, $property_data);
@@ -192,11 +200,27 @@ class APFI_Agency_Pilot {
      */
     private function propertyPrice($property) {
 
+        $price = '';
+
         if($property->Tenure->ForSale) {
-            return $property->Tenure->ForSalePriceFrom;
+            
+            if($property->Tenure->ForSalePriceFrom) {
+                $price = $property->Tenure->ForSalePriceFrom;
+            } else {
+                $price = $property->Tenure->ForSalePriceTo;
+            }
+
+        } else {
+
+            if($property->Tenure->ForRentPriceFrom) {
+                $price = $property->Tenure->ForRentPriceFrom;
+            } else {
+                $price = $property->Tenure->ForRentPriceTo;
+            }
+
         }
 
-        return $property->Tenure->ForRentPriceFrom;
+        return $price;
 
     }
 
@@ -285,6 +309,22 @@ class APFI_Agency_Pilot {
     }
 
     /**
+     * Generates main property image
+     */
+    private function propertyMainImage($data) {
+
+        if(is_array($data) && !empty($data)) {
+            $image = reset($data);
+            if($image->URLFullSize) {
+                return $image->URLFullSize;
+            }
+        }
+
+        return null;
+
+    }
+
+    /**
      * Generate custom array
      * of property images
      */
@@ -299,6 +339,19 @@ class APFI_Agency_Pilot {
         }
 
         return $images;
+
+    }
+
+    /**
+     * Generate Brochure
+     */
+    private function propertyBrochure($data) {
+
+        if(!isset($data[0]) && isset($data[0]->URLs[0])) {
+            return $data[0]->URLs[0];
+        }
+
+        return null;
 
     }
 
@@ -336,7 +389,45 @@ class APFI_Agency_Pilot {
 
     }
 
-    
+    /**
+     * Generate About
+     */
+    private function propertyAbout($data) {
+
+        $about = '';
+
+        if(!empty($data) && is_array($data)) {
+            foreach($data as $info) {
+                if(!empty($info->Information)) {
+                    $about .= htmlspecialchars_decode('<h4>'.$info->Description.'</h4>');
+                    $about .= htmlspecialchars_decode($info->Information);
+                }
+            }
+        }
+        
+        return $about;
+
+    }
+
+    /**
+     * Generate Features
+     */
+    private function propertyFeatures($data) {
+
+        $features = array();
+
+        if(!empty($data) && is_array($data)) {
+            foreach($data as $feature) {
+                if($feature->BulletPoint) {
+                    array_push($features, $feature->BulletPoint);
+                }
+            }
+        }
+
+        return $features;
+
+    }
+
     /**
      * Check if in debug mode
      */

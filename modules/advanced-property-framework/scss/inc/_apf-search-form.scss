@@ -91,9 +91,9 @@
 
 		}
 
-		.apf__search__button { flex-grow:1; background:$secondary; border:none; cursor:pointer; text-align:center; position:relative; border-radius:none; font-size: 28px; color: #fff; padding:0 25px; font-family:$primaryFont; margin:5px; transition:all .3s ease; max-width: 165px; border-radius: 3px;
+		.apf__search__button { flex-grow:1; background:$quaternary; border:none; cursor:pointer; text-align:center; position:relative; border-radius:none; font-size: 28px; color: #fff; padding:0 25px; font-family:$primaryFont; margin:5px; transition:all .3s ease; max-width: 165px; border-radius: 3px;
 
-			&:hover { background:lighten($secondary, 3%); transition:all .3s ease; color: $primary;}
+			&:hover { background:lighten($quaternary, 3%); transition:all .3s ease; color: #fff;}
 
 			@include breakpoint(mamabear) { padding:5px 20px;}
 			@include breakpoint(sisterbear) { max-width: 100%; padding: 15px 20px;}

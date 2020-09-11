@@ -53,7 +53,7 @@ article { width:percentage(1/2); border:none; border-left:10px transparent solid
 
 		.apf__property__details { padding:20px; flex:1 0 auto;
 
-			h3 { font-size:26px; color: $primary; padding-bottom: 5px; margin:0; font-weight: 700;
+			h3 { font-size:26px; color: $secondary; padding-bottom: 5px; margin:0; font-weight: 700;
                 small { font-size:16px;}
 
 				span {
@@ -62,7 +62,7 @@ article { width:percentage(1/2); border:none; border-left:10px transparent solid
 				}
 			}
 
-            h5 { font-size:16px; color:$text; padding-bottom:15px; margin:0; font-weight: 700; display: flex; align-items: center; line-height: normal;
+            h5 { font-size:14px; color:$text; padding-bottom:15px; margin:0; font-weight: 500; display: flex; align-items: center; line-height: normal;
                 small.new-home { background: $secondary; color: $primary; font-size: 11px; padding: 6px 9px; border-radius: 5px; margin-left: 10px; min-width: 76px; line-height: normal;}
             }
 
@@ -87,7 +87,7 @@ article { width:percentage(1/2); border:none; border-left:10px transparent solid
 				}
 			}
 
-			a.apf__property__meta__action { display:block; text-align:center; font-size: 14px; font-weight: 800; color: $primary; background:none; text-transform: uppercase; font-weight: 700;
+			a.apf__property__meta__action { display:block; text-align:center; font-size: 14px; font-weight: 800; color: $quaternary; background:none; text-transform: uppercase; font-weight: 700;
                 &:first-child { border-left: 0;}
 			}
 

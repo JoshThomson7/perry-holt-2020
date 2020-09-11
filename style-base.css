@@ -34,7 +34,7 @@
 * Usage: @include pretty-checkradio(label);
 * Source: https://stackoverflow.com/questions/12743837/can-i-use-variables-for-selectors
 */
-@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 * {
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -25065,6 +25065,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   width: 100%;
   border-radius: 5px;
   box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
 .oc__nav__content__panel .fc_masonry .masonry__wrapper .masonry__item.property article a.apf__property__img {
   display: block;
@@ -25108,7 +25109,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   transition: all 0.3s ease;
   opacity: 0;
   display: flex;
-  background: rgba(0, 47, 82, 0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 700px) {
   .oc__nav__content__panel .fc_masonry .masonry__wrapper .masonry__item.property article a.apf__property__img .apf__property__img__overlay {
@@ -25135,7 +25136,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   opacity: 1;
   width: 50px;
   height: 50px;
-  color: #fff;
+  color: #002f52;
   font-size: 60px;
   margin: auto;
 }
@@ -25180,11 +25181,24 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   font-size: 20px;
 }
 .oc__nav__content__panel .fc_masonry .masonry__wrapper .masonry__item.property article .apf__property__details__wrap .apf__property__details h5 {
-  font-size: 16px;
+  font-size: 14px;
   color: #6b8aa2;
   padding-bottom: 15px;
   margin: 0;
-  font-weight: 700;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  line-height: normal;
+}
+.oc__nav__content__panel .fc_masonry .masonry__wrapper .masonry__item.property article .apf__property__details__wrap .apf__property__details h5 small.new-home {
+  background: #002f52;
+  color: #555759;
+  font-size: 11px;
+  padding: 6px 9px;
+  border-radius: 5px;
+  margin-left: 10px;
+  min-width: 76px;
+  line-height: normal;
 }
 .oc__nav__content__panel .fc_masonry .masonry__wrapper .masonry__item.property article .apf__property__details__wrap .apf__property__details p {
   font-size: 15px;
@@ -25244,16 +25258,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   text-align: center;
   font-size: 14px;
   font-weight: 800;
-  color: #002f52;
+  color: #b20e12;
   background: none;
   text-transform: uppercase;
   font-weight: 700;
 }
 .oc__nav__content__panel .fc_masonry .masonry__wrapper .masonry__item.property article .apf__property__details__wrap .apf__property__meta a.apf__property__meta__action:first-child {
   border-left: 0;
-}
-.oc__nav__content__panel .fc_masonry .masonry__wrapper .masonry__item.property article .apf__property__details__wrap .apf__property__meta a.apf__property__meta__action.arrow__link i {
-  color: #b20e12;
 }
 .oc__nav__content__panel .fc_masonry .masonry__wrapper .masonry__item.property article.skeleton .apf__property__details__wrap .apf__property__details h3 {
   height: 25px;
@@ -29298,6 +29309,7 @@ Flexible Content
   width: 100%;
   border-radius: 5px;
   box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
 .flexible__content .fc_masonry .masonry__wrapper .masonry__item.property article a.apf__property__img {
   display: block;
@@ -29341,7 +29353,7 @@ Flexible Content
   transition: all 0.3s ease;
   opacity: 0;
   display: flex;
-  background: rgba(0, 47, 82, 0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 @media (max-width: 700px) {
   .flexible__content .fc_masonry .masonry__wrapper .masonry__item.property article a.apf__property__img .apf__property__img__overlay {
@@ -29368,7 +29380,7 @@ Flexible Content
   opacity: 1;
   width: 50px;
   height: 50px;
-  color: #fff;
+  color: #002f52;
   font-size: 60px;
   margin: auto;
 }
@@ -29413,11 +29425,24 @@ Flexible Content
   font-size: 20px;
 }
 .flexible__content .fc_masonry .masonry__wrapper .masonry__item.property article .apf__property__details__wrap .apf__property__details h5 {
-  font-size: 16px;
+  font-size: 14px;
   color: #6b8aa2;
   padding-bottom: 15px;
   margin: 0;
-  font-weight: 700;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  line-height: normal;
+}
+.flexible__content .fc_masonry .masonry__wrapper .masonry__item.property article .apf__property__details__wrap .apf__property__details h5 small.new-home {
+  background: #002f52;
+  color: #555759;
+  font-size: 11px;
+  padding: 6px 9px;
+  border-radius: 5px;
+  margin-left: 10px;
+  min-width: 76px;
+  line-height: normal;
 }
 .flexible__content .fc_masonry .masonry__wrapper .masonry__item.property article .apf__property__details__wrap .apf__property__details p {
   font-size: 15px;
@@ -29477,16 +29502,13 @@ Flexible Content
   text-align: center;
   font-size: 14px;
   font-weight: 800;
-  color: #002f52;
+  color: #b20e12;
   background: none;
   text-transform: uppercase;
   font-weight: 700;
 }
 .flexible__content .fc_masonry .masonry__wrapper .masonry__item.property article .apf__property__details__wrap .apf__property__meta a.apf__property__meta__action:first-child {
   border-left: 0;
-}
-.flexible__content .fc_masonry .masonry__wrapper .masonry__item.property article .apf__property__details__wrap .apf__property__meta a.apf__property__meta__action.arrow__link i {
-  color: #b20e12;
 }
 .flexible__content .fc_masonry .masonry__wrapper .masonry__item.property article.skeleton .apf__property__details__wrap .apf__property__details h3 {
   height: 25px;
@@ -30259,7 +30281,7 @@ section.blog {
 
 ------------------------------------------- */
 body {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   font-weight: 500;
   color: #6b8aa2;
@@ -31371,7 +31393,7 @@ footer .footer__signup__form .form__row input[type=email] {
   padding: 20px;
   border-radius: 3px;
   border: none;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px;
   min-width: 320px;
   color: #555759;
@@ -31449,7 +31471,7 @@ footer .footer__signup__form .form__row button {
   font-weight: 800;
   color: #f5f8f9;
   padding: 4px 25px 0;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Montserrat", sans-serif;
   transition: all 0.3s ease;
   max-width: 165px;
   border-radius: 3px;
@@ -31690,7 +31712,7 @@ footer .subfooter .subfooter__credits p a:hover {
 .gform_wrapper input[type=button],
 .gform_wrapper button {
   margin-top: 10px;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Montserrat", sans-serif;
   padding: 14px 60px 9px;
   font-size: 20px;
   font-size: 1.25rem;

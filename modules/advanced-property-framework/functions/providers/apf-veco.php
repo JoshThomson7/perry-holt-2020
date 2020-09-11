@@ -113,7 +113,7 @@ function apf_the_property_price($show_currency = true, $show_period = true, $htm
                 } elseif($period == 'per-person-month') {
                     $period = 'pppm';
                 } else {
-                    $period = 'pw';
+                    $period = 'pcm';
                 }
 
                 if($html)
