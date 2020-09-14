@@ -22,7 +22,9 @@ function fetchProperties($data) {
 	$apf_minprice = isset($search_params['apf_minprice']) && !empty($search_params['apf_minprice']) ? $search_params['apf_minprice'] : 0;
 	$apf_maxprice = isset($search_params['apf_maxprice']) && !empty($search_params['apf_maxprice']) ? $search_params['apf_maxprice'] : 9999999999;
 	$apf_minbeds = isset($search_params['apf_minbeds']) && !empty($search_params['apf_minbeds']) ? $search_params['apf_minbeds'] : 0;
-	$apf_maxbeds = isset($search_params['apf_maxbeds']) && !empty($search_params['apf_maxbeds']) ? $search_params['apf_maxbeds'] : 9999999999;
+    $apf_maxbeds = isset($search_params['apf_maxbeds']) && !empty($search_params['apf_maxbeds']) ? $search_params['apf_maxbeds'] : 9999999999;
+    $apf_minsize = isset($search_params['apf_minsize']) && !empty($search_params['apf_minsize']) ? $search_params['apf_minsize'] : 0;
+	$apf_maxsize = isset($search_params['apf_maxsize']) && !empty($search_params['apf_maxsize']) ? $search_params['apf_maxsize'] : 9999999999;
 	$apf_view = isset($search_params['apf_view']) && !empty($search_params['apf_view']) ? $search_params['apf_view'] : 'grid';
 	$apf_order = isset($search_params['apf_order']) && !empty($search_params['apf_order']) ? $search_params['apf_order'] : 'price_desc';
     $apf_status = isset($search_params['apf_status']) && !empty($search_params['apf_status']) ? $search_params['apf_status'] : '';
@@ -64,6 +66,18 @@ function fetchProperties($data) {
                 'key'       => 'property_bedrooms',
                 'value'     => array($apf_minbeds, $apf_maxbeds),
                 'compare'   => 'BETWEEN',
+                'type'      => 'numeric'
+            ),
+            array(
+                'key'       => 'property_min_size',
+                'value'     => $apf_minsize,
+                'compare'   => '>=',
+                'type'      => 'numeric'
+            ),
+            array(
+                'key'       => 'property_max_size',
+                'value'     => $apf_maxsize,
+                'compare'   => '<=',
                 'type'      => 'numeric'
             ),
             array(

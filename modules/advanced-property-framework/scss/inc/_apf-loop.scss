@@ -33,7 +33,7 @@ article { width:percentage(1/2); border:none; border-left:10px transparent solid
 
 			&:before { content:""; display:block; border-radius:100%; width:200px; height:200px; background:rgba(255, 255, 255, 1); transform:scale(1); position:absolute; left:50%; top:50%; margin:-100px; opacity:.3; visibility:hidden;}
 
-			span { transition:all .3s ease; opacity:1; width:50px; height:50px; color:$secondary; font-size:60px; margin:auto;}
+			span { transition:all .3s ease; opacity:1; width:50px; height:50px; color: #fff; font-size:60px; margin:auto;}
 		}
 
 

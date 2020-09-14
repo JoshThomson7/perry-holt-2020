@@ -160,6 +160,8 @@ class APFI_Agency_Pilot {
             $property_data->Features = $this->propertyFeatures($property->Additional->Bullets);
             $property_data->Brochure = $this->propertyBrochure($property->DocumentMedia);
             $property_data->EPC = $this->propertyEPC($property->DocumentMedia);
+            $property_data->MinSize = $property->Size->MinSize;
+            $property_data->MaxSize = $property->Size->MaxSize;
             
             array_push($properties, $property_data);
 

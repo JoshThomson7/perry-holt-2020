@@ -43,24 +43,97 @@ $departments = $apf_settings->departments();
             <input type="hidden" name="apf_dept" value="<?php echo $departments[0]['value']; ?>"/>
         <?php endif; ?>
 
-        <input type="text" name="apf_location" placeholder="Area, postcode, town or street" class="apf__area__search" value="" />
+        <input type="text" name="apf_location" placeholder="Area, postcode sq ft, town sq ft or street" class="apf__area__search" value="" />
 
         <div class="apf__search__selects">
-            <?php if(is_front_page()): ?>
-                <input type="hidden" name="apf_minprice" value="0" />
-                <input type="hidden" name="apf_maxprice" value="9999999999" />            
+            <div class="apf__select__wrap">
+                <select name="apf_minprice" id="apf_minprice" class="apf__select apf__minprice"></select>
+                <span class="fal fa-chevron-down"></span>
+            </div><!-- apf__select__wrap -->
+
+            <div class="apf__select__wrap">
+                <select name="apf_maxprice" id="apf_maxprice" class="apf__select apf__maxprice"></select>
+                <span class="fal fa-chevron-down"></span>
+            </div><!-- apf__select__wrap -->
+
+            <div class="apf__select__wrap">
+                <select name="apf_minsize" class="apf__select apf__minsize">
+                    <option value="0">Min size (sq ft)</option>
+                    <option value="50">50 sq ft</option>
+                    <option value="100">100 sq ft</option>
+                    <option value="200">200 sq ft</option>
+                    <option value="300">300 sq ft</option>
+                    <option value="400">400 sq ft</option>
+                    <option value="600">500 sq ft</option>
+                    <option value="700">700 sq ft</option>
+                    <option value="800">800 sq ft</option>
+                    <option value="900">900 sq ft</option>
+                    <option value="1000">1,000 sq ft</option>
+                    <option value="1500">1,500 sq ft</option>
+                    <option value="2000">2,000 sq ft</option>
+                    <option value="3000">3,000 sq ft</option>
+                    <option value="4000">4,000 sq ft</option>
+                    <option value="5000">5,000 sq ft</option>
+                    <option value="6000">6,000 sq ft</option>
+                    <option value="7000">7,000 sq ft</option>
+                    <option value="8000">8,000 sq ft</option>
+                    <option value="9000">9,000 sq ft</option>
+                    <option value="10000">10,000 sq ft</option>
+                    <option value="12000">12,000 sq ft</option>
+                    <option value="13000">13,000 sq ft</option>
+                    <option value="14000">14,000 sq ft</option>
+                    <option value="15000">15,000 sq ft</option>
+                    <option value="16000">16,000 sq ft</option>
+                    <option value="17000">17,000 sq ft</option>
+                    <option value="18000">18,000 sq ft</option>
+                    <option value="19000">19,000 sq ft</option>
+                    <option value="20000">20,000 sq ft</option>
+                </select>
+
+                <span class="fal fa-chevron-down"></span>
+            </div><!-- apf__select__wrap -->
+
+            <div class="apf__select__wrap">
+                <select name="apf_maxsize" class="apf__select apf__maxsize">
+                <option value="0">Max size (sq ft)</option>
+                    <option value="50">50 sq ft</option>
+                    <option value="100">100 sq ft</option>
+                    <option value="200">200 sq ft</option>
+                    <option value="300">300 sq ft</option>
+                    <option value="400">400 sq ft</option>
+                    <option value="600">500 sq ft</option>
+                    <option value="700">700 sq ft</option>
+                    <option value="800">800 sq ft</option>
+                    <option value="900">900 sq ft</option>
+                    <option value="1000">1,000 sq ft</option>
+                    <option value="1500">1,500 sq ft</option>
+                    <option value="2000">2,000 sq ft</option>
+                    <option value="3000">3,000 sq ft</option>
+                    <option value="4000">4,000 sq ft</option>
+                    <option value="5000">5,000 sq ft</option>
+                    <option value="6000">6,000 sq ft</option>
+                    <option value="7000">7,000 sq ft</option>
+                    <option value="8000">8,000 sq ft</option>
+                    <option value="9000">9,000 sq ft</option>
+                    <option value="10000">10,000 sq ft</option>
+                    <option value="12000">12,000 sq ft</option>
+                    <option value="13000">13,000 sq ft</option>
+                    <option value="14000">14,000 sq ft</option>
+                    <option value="15000">15,000 sq ft</option>
+                    <option value="16000">16,000 sq ft</option>
+                    <option value="17000">17,000 sq ft</option>
+                    <option value="18000">18,000 sq ft</option>
+                    <option value="19000">19,000 sq ft</option>
+                    <option value="20000">20,000 sq ft</option>
+                </select>
+
+                <span class="fal fa-chevron-down"></span>
+            </div><!-- apf__select__wrap -->
+            
+            <?php if(is_front_page() || !$apf_settings->search_beds_dropdown()): ?>
                 <input type="hidden" name="apf_minbeds" value="0" />
                 <input type="hidden" name="apf_maxbeds" value="100" />
             <?php else: ?>
-                <div class="apf__select__wrap">
-                    <select name="apf_minprice" id="apf_minprice" class="apf__select apf__minprice"></select>
-                    <span class="fal fa-chevron-down"></span>
-                </div><!-- apf__select__wrap -->
-
-                <div class="apf__select__wrap">
-                    <select name="apf_maxprice" id="apf_maxprice" class="apf__select apf__maxprice"></select>
-                    <span class="fal fa-chevron-down"></span>
-                </div><!-- apf__select__wrap -->
 
                 <div class="apf__select__wrap">
                     <select name="apf_minbeds" class="apf__select apf__minbeds">
@@ -97,6 +170,7 @@ $departments = $apf_settings->departments();
 
                     <span class="fal fa-chevron-down"></span>
                 </div><!-- apf__select__wrap -->
+                
             <?php endif; ?>
         </div><!-- apf__search__selects -->
         

@@ -109,4 +109,26 @@ class APF_Settings {
 
     }
 
+    /**
+     * Whether to show the "No. of beds" dropdown
+     * 
+     * @return bool
+     */
+    public function search_beds_dropdown() {
+
+        return get_field('apf_search_beds', 'option');
+
+    }
+
+    /**
+     * Whether to show the "No. of beds" dropdown
+     * 
+     * @return bool
+     */
+    public function search_home_banners_form() {
+
+        return get_field('apf_search_home_banners_form', 'option');
+
+    }
+
 }

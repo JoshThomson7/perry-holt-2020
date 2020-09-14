@@ -1150,7 +1150,7 @@ section.apf.apf__combined .apf__results .apf__results__list .apf__properties art
   opacity: 1;
   width: 50px;
   height: 50px;
-  color: #002f52;
+  color: #fff;
   font-size: 60px;
   margin: auto;
 }
@@ -2801,7 +2801,7 @@ section.apf.apf__single__property .apf__single__property__details .apf__single__
   opacity: 1;
   width: 50px;
   height: 50px;
-  color: #002f52;
+  color: #fff;
   font-size: 60px;
   margin: auto;
 }
