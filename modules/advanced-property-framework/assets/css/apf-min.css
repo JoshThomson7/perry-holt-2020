@@ -1439,7 +1439,7 @@ section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__w
   position: absolute;
   width: 40px;
   height: 40px;
-  background: #002f52;
+  background: #b20e12;
   top: 0;
   left: -40px;
   border-radius: 25px 0 0 25px;
@@ -1450,7 +1450,7 @@ section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__w
   }
 }
 section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__wrap #infowindow .infowindow__img .infowindow-close i {
-  color: #555759;
+  color: #fff;
   text-align: center;
   line-height: 40px;
   font-size: 25px;
@@ -1473,7 +1473,7 @@ section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__w
   }
 }
 section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__wrap #infowindow h3 a {
-  color: #555759;
+  color: #002f52;
   font-size: 24px;
   font-weight: 700;
 }
@@ -1511,13 +1511,13 @@ section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__w
   }
 }
 section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__wrap #infowindow .infowindow__content {
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__wrap #infowindow .infowindow__content h5 {
-  font-size: 22px;
+  font-size: 17px;
   margin: 0 0 10px;
-  color: #555759;
-  font-weight: 600;
+  color: #002f52;
+  font-weight: 700;
 }
 @media (max-width: 700px) {
   section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__wrap #infowindow .infowindow__content h5 {
@@ -1527,9 +1527,9 @@ section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__w
 }
 section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__wrap #infowindow .infowindow__content p {
   color: #6b8aa2;
-  line-height: 22px;
+  line-height: 20px;
   margin: 0 0 10px;
-  font-size: 15px;
+  font-size: 13px;
 }
 @media (max-width: 700px) {
   section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__wrap #infowindow .infowindow__content p {
@@ -1558,9 +1558,9 @@ section.apf.apf__combined .apf__results .apf__results__map .apf__results__map__w
   padding: 15px 20px;
   border-radius: 3px;
   width: 100%;
-  color: #555759;
+  color: #fff;
   text-transform: uppercase;
-  background: #002f52;
+  background: #b20e12;
   margin-right: 5px;
   margin-top: 20px;
 }
@@ -3364,7 +3364,7 @@ section #branch_map {
   position: absolute;
   width: 40px;
   height: 40px;
-  background: #002f52;
+  background: #b20e12;
   top: 0;
   left: -40px;
   border-radius: 25px 0 0 25px;
@@ -3375,7 +3375,7 @@ section #branch_map {
   }
 }
 .apf__branches__map__wrap #infowindow .infowindow__img .infowindow-close i {
-  color: #555759;
+  color: #fff;
   text-align: center;
   line-height: 40px;
   font-size: 25px;
@@ -3398,7 +3398,7 @@ section #branch_map {
   }
 }
 .apf__branches__map__wrap #infowindow h3 a {
-  color: #555759;
+  color: #002f52;
   font-size: 24px;
   font-weight: 700;
 }
@@ -3436,13 +3436,13 @@ section #branch_map {
   }
 }
 .apf__branches__map__wrap #infowindow .infowindow__content {
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 .apf__branches__map__wrap #infowindow .infowindow__content h5 {
-  font-size: 22px;
+  font-size: 17px;
   margin: 0 0 10px;
-  color: #555759;
-  font-weight: 600;
+  color: #002f52;
+  font-weight: 700;
 }
 @media (max-width: 700px) {
   .apf__branches__map__wrap #infowindow .infowindow__content h5 {
@@ -3452,9 +3452,9 @@ section #branch_map {
 }
 .apf__branches__map__wrap #infowindow .infowindow__content p {
   color: #6b8aa2;
-  line-height: 22px;
+  line-height: 20px;
   margin: 0 0 10px;
-  font-size: 15px;
+  font-size: 13px;
 }
 @media (max-width: 700px) {
   .apf__branches__map__wrap #infowindow .infowindow__content p {
@@ -3483,9 +3483,9 @@ section #branch_map {
   padding: 15px 20px;
   border-radius: 3px;
   width: 100%;
-  color: #555759;
+  color: #fff;
   text-transform: uppercase;
-  background: #002f52;
+  background: #b20e12;
   margin-right: 5px;
   margin-top: 20px;
 }

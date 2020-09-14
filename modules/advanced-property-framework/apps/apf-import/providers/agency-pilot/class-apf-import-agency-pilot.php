@@ -151,7 +151,7 @@ class APFI_Agency_Pilot {
             $property_data->Title = $property->Address->DisplayAddress;
             $property_data->Address = $this->propertyAddress($property->Address);
             $property_data->AddressFull = $property->Address;
-            $property_data->Lat = $property->Address->Longitude;
+            $property_data->Lat = $property->Address->Latitude;
             $property_data->Lng = $property->Address->Longitude;
             $property_data->MainImage = $this->propertyMainImage($property->Photos);
             $property_data->Images = $this->propertyImages($property->Photos);

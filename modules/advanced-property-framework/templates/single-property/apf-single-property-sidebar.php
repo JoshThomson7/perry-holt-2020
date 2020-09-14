@@ -87,9 +87,9 @@ $opening_times = new APF_Opening_Times;
     <article class="documents">
         <h3>Useful links</h3>
         <ul>
-            <?php if(has_term('to-let', 'property_type', $property_id)): ?>
+            <?php /*if(has_term('to-let', 'property_type', $property_id)): ?>
                 <li><a href="<?php echo esc_url(home_url()); ?>/tenant-fees/" target="_blank"><i class="fal fa-tag"></i>Tenant Fees</a></li>
-            <?php endif; ?>
+            <?php endif;*/ ?>
 
             <?php if(get_field('property_epc')): ?>
                 <li><a href="#epc" title="View EPC" class="scroll"><i class="fi flaticon-plug"></i>View EPC</a></li>

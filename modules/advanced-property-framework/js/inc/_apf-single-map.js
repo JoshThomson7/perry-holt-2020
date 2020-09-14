@@ -15,7 +15,7 @@ function apf_single_map() {
     var latlngPos = new google.maps.LatLng(latitude, longitude);
 
     var mapOptions = {
-        zoom: 18,
+        zoom: 15,
         center: latlngPos,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
 
@@ -46,7 +46,7 @@ function apf_single_map() {
     // Define the map
     map = new google.maps.Map(document.getElementById("map_single"), mapOptions);
 
-    var marker_icon = new google.maps.MarkerImage(the_hard_men_path+"/modules/advanced-property-framework/img/marker-property.png", null, null, null, new google.maps.Size(50,38));
+    var marker_icon = new google.maps.MarkerImage(apf_ajax_object.apf_path+"/img/marker-property-hover.png", null, null, null, new google.maps.Size(50,38));
 
     // Add the marker
     var marker = new google.maps.Marker({

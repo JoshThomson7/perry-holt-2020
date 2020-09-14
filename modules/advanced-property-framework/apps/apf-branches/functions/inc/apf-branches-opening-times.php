@@ -34,9 +34,6 @@ class APF_Opening_Times {
         // Loop through times.
         while(have_rows('opening_times', $post_id)) {
             the_row();
-            
-            // Timezone.
-            date_default_timezone_set(get_option('timezone_string'));
 
             // Set up object.
             $todays_times = new stdClass();
@@ -158,8 +155,6 @@ class APF_Opening_Times {
         if(!$this->has_times($post_id)) {
             return;
         }
-
-        date_default_timezone_set(get_option('timezone_string'));
         
         $todays_weekday = date('l');
 
