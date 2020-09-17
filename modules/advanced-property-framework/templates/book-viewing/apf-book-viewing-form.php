@@ -10,7 +10,7 @@ global $post;
 
                 <h2>Book a viewing</h2>
                 <h3>You're requesting a viewing for:<strong><?php echo get_the_title($post->ID); ?> - <?php apf_the_property_price(); ?></strong></h3>
-                <?php echo do_shortcode('[gravityform id="3" title="false" description="false" ajax="true"]'); ?>
+                <?php echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="true"]'); ?>
             </div><!-- apf__book__viewing__wrapper -->
         </div><!-- max__width -->
     </div><!-- apf__book__viewing -->
