@@ -371,39 +371,14 @@ function apf_the_property_status($echo = true, $html = true) {
 
         switch(get_field('property_status', $property_id)) {
 
-            case 'New Instruction':
+            case 'Available':
                 $color = '';
                 $property_status = '';
                 break;
 
-            case 'Sold STC':
+            case 'Let':
                 $color = ' apf__status__red';
-                $property_status = 'Sold STC';
-                break;
-
-            case 'Sold STCM':
-                $color = ' apf__status__red';
-                $property_status = 'Sold STCM';
-                break;
-
-            case 'Under Offer':
-                $color = ' apf__status__amber';
-                $property_status = 'Under Offer';
-                break;
-
-            case 'Reserved':
-                $color = ' apf__status__amber';
-                $property_status = 'Reserved';
-                break;
-
-            case 'Let Agreed':
-                $color = ' apf__status__red';
-                $property_status = 'Let Agreed';
-                break;
-
-            case 'Let STC':
-                $color = ' apf__status__red';
-                $property_status = 'Let Agreed';
+                $property_status = 'Let';
                 break;
 
             case 'Sold':
@@ -411,9 +386,19 @@ function apf_the_property_status($echo = true, $html = true) {
                 $property_status = 'Sold';
                 break;
 
-            case 'Let':
+            case 'Sold Subject to Contract':
                 $color = ' apf__status__red';
-                $property_status = 'Let';
+                $property_status = 'Sold STC';
+                break;
+
+            case 'Under Offer':
+                $color = ' apf__status__amber';
+                $property_status = 'Under Offer';
+                break;
+
+            case 'Under Development':
+                $color = ' apf__status__amber';
+                $property_status = 'Under Development';
                 break;
 
         }

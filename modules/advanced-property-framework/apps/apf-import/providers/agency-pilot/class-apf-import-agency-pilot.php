@@ -87,6 +87,29 @@ class APFI_Agency_Pilot {
 
             $curl = curl_init();
 
+            $postFields = array(
+                'DisplayOptions' => array(
+                    'Additional' => true,
+                    'Categories' => true,
+                    'Photos' => true,
+                    'DocumentMedia' => true,
+                    'Floors' => true,
+                    'Agents' => true,
+                    'Auctions' => false,
+                    'SystemDetails' => true
+                ),
+                'FilterOptions' => array(
+                    'Statuses' => array(
+                        14, // Available
+                        5, // Let
+                        4, // Sold
+                        6, // Sold STC
+                        7, // Under development
+                        8, // Under offer
+                    )
+                )
+            );
+
             // Get data
             curl_setopt_array($curl, array(
                 CURLOPT_URL => 'https://'.$this->user.'.agencypilot.com/api/version1_0_1/PropertyFeed/Property',
@@ -97,7 +120,8 @@ class APFI_Agency_Pilot {
                 CURLOPT_FOLLOWLOCATION => true,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => "POST",
-                CURLOPT_POSTFIELDS =>"{\r\n\t\"DisplayOptions\":{\r\n\t\t\"Additional\": true,\r\n\t\t\"Categories\": true,\r\n\t\t\"Photos\": true,\r\n\t\t\"DocumentMedia\": true,\r\n\t\t\"Floors\": true,\r\n\t\t\"Agents\": true,\r\n\t\t\"Auctions\": false,\r\n\t\t\"SystemDetails\": true\r\n\t}\r\n}",
+                // CURLOPT_POSTFIELDS =>"{\r\n\t\"DisplayOptions\":{\r\n\t\t\"Additional\": true,\r\n\t\t\"Categories\": true,\r\n\t\t\"Photos\": true,\r\n\t\t\"DocumentMedia\": true,\r\n\t\t\"Floors\": true,\r\n\t\t\"Agents\": true,\r\n\t\t\"Auctions\": false,\r\n\t\t\"SystemDetails\": true\r\n\t}\r\n}",
+                CURLOPT_POSTFIELDS => json_encode($postFields),
                 CURLOPT_HTTPHEADER => array(
                     'Authorization: bearer '.$this->getToken(),
                     'Content-Type: application/json',
