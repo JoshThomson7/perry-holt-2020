@@ -89,6 +89,7 @@ function apf_the_property_price($show_currency = true, $show_period = true, $htm
                     $qualifier_text = 'Offers in excess of';
 
                 }elseif($qualifier == 'per sq ft') {
+                    $show_period = false; 
                     $qualifier_text = $qualifier; 
                 }
 
