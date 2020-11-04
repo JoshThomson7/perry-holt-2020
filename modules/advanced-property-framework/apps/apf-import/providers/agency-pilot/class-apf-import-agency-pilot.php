@@ -172,6 +172,7 @@ class APFI_Agency_Pilot {
             $property_data->Type = ucwords($property->Additional->BrochureHeader);
             $property_data->Status = $property->MarketStatus->Name;
             $property_data->Price = $this->propertyPrice($property);
+            $property_data->PriceQualifier = $this->propertyPriceQualifier($property);
             $property_data->Title = $property->Address->DisplayAddress;
             $property_data->Address = $this->propertyAddress($property->Address);
             $property_data->AddressFull = $property->Address;
@@ -248,6 +249,28 @@ class APFI_Agency_Pilot {
 
         return $price;
 
+    }
+
+    /**
+     * Generate custom property qualifier
+     */
+    private function propertyPriceQualifier($property) {
+
+        $qualifier = '';
+
+        if($property->Tenure->ForSale) {
+
+            // $qualifier = $property->Tenure->ForSaleTerm->Name;
+
+        } else {
+
+            if( $property->Tenure->ForRent ) {
+                $qualifier = $property->Tenure->ForRentTerm->Name;
+            }
+
+        }
+
+        return $qualifier;
     }
 
     /**

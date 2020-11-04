@@ -74,17 +74,22 @@ function apf_the_property_price($show_currency = true, $show_period = true, $htm
         $qualifier = get_field('property_price_qualifier', $property_id);
 
         if($qualifier && $html) {
+
             if($qualifier == 'PA') {
                 $currency = '';
                 $price = '';
                 $qualifier = 'POA';
 
             } else {
+
                 if($qualifier == 'GP') {
                     $qualifier_text = 'Guide price';
 
                 } elseif($qualifier == 'OE') {
                     $qualifier_text = 'Offers in excess of';
+
+                }elseif($qualifier == 'per sq ft') {
+                    $qualifier_text = $qualifier; 
                 }
 
                 $qualifier = ' <span class="apf__qualifier">('.$qualifier_text.')</span>';
