@@ -163,6 +163,18 @@ if(!empty($attachment_id)) {
                         apf_search_form(true);
                     }
                 ?>
+
+                <?php if(get_field('show_form')): ?>
+                    <div id="landingForm" class="landing__form">
+                        <?php if(get_field('landing_banner_form_heading')): ?><h3><?php the_field('landing_banner_form_heading') ?></h3><?php endif; ?>
+                        <?php echo get_field('landing_banner_form_id') ? do_shortcode('[gravityform id="'.get_field('landing_banner_form_id').'" title="false" description="false" ajax="true"]') : ''; ?>
+                    </div>
+                    <?php if(!empty(get_field('landing_banner_form_mobile_button'))):?>
+                        <div class="landing__form__button mobile-only">
+                                <a href="#" id="banner_modal_form" class="button tertiary"><span><?php the_field('landing_banner_form_mobile_button')?></span></a>
+                        </div>
+                    <?php endif;?>
+                <?php endif; ?>
             </div><!-- banner__width -->
 
             <div class="banner__overlay <?php echo $page_banner_overlay_opacity; ?>"></div>

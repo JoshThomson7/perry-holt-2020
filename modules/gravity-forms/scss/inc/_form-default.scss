@@ -48,9 +48,15 @@
 		transition: $input-transition;
 		box-sizing:border-box;
 		font-size:16px;
+		font-family: $primaryFont!important;
 
 		&:focus {
 			outline: none;
+		}
+
+		&::placeholder{
+			color: $primary!important;
+			font-family: $primaryFont!important;
 		}
 	}
 
