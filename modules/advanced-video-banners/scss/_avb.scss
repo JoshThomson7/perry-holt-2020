@@ -8,7 +8,6 @@ section.banners { position: relative; overflow: hidden;
 
     /* Global */
     .banner { position: relative; height: calc(100vh - 300px); min-height: 660px; overflow: hidden; overflow: hidden; background: #222124;
-        @media (max-width: 3000px) and (min-width: 2280px) { clip-path: ellipse(2500px 93% at 75% 0%);}
 
         @include breakpoint(brotherbear) { height: calc(100vh - 500px);}
         @include breakpoint(mamabear) { height: calc(100vh - 650px);}

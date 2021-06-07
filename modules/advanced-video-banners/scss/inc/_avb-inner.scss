@@ -12,7 +12,7 @@
 
         //@media only screen and (max-height:1000px) { padding: 40px 0;}
 
-        .max__width { display:flex; flex-direction: column; overflow: hidden; position: relative; z-index: 3; align-items: center;
+        .max__width { display:flex; overflow: hidden; position: relative; z-index: 3; align-items: center;
             .avb__apf__search { position: static;
                 .max__width { padding: 0;}
                 .apf__search { border-top: 0;}
@@ -31,17 +31,32 @@
             &.align-right { text-align:right; width:100%;}
         }
 
-        .landing__form{width: 50%; max-width: 500px; background: $primary;padding: 30px 20px;position: relative; z-index: 999; top: 30px;
+        .landing__form{width: 50%; max-width: 500px; min-width: 300px; background: $primary; padding: 30px 20px;position: relative; z-index: 999; top: 30px;
 
-            @include breakpoint(mamabear){padding: 15px 20px 20px 20px; width: 80%;}
+            @include breakpoint(mamabear){width: 90%;}
 
-            h3{color: white;font-size: 24px;}
+            h3{color: white;font-size: 24px; padding-bottom: 10px;}
 
             .gform_wrapper{
                 margin: 0!important;
 
                 form{
                     .gform_body{margin: 0!important;
+
+                        .gform_fields{
+
+                            .gfield{
+                                padding-bottom: 15px;
+
+                                .gfield_label{
+                                    color: white;
+                                }
+
+                                label{
+                                    color: white;
+                                }
+                            }
+                        }
     
                         ul{
                             li{padding: 0 0 5px!important;
@@ -74,7 +89,7 @@
                         padding: 0!important;
     
                         input{
-                            background: $secondary; border: 2px solid $secondary; color: white; width: 100%; margin: 15px 0 10px!important; height: 50px; padding: 0;
+                            background: $secondary; border: 2px solid $secondary; color: white; width: 100%; margin: 10px 0 10px!important; height: 50px; padding: 0;
 
                             @include breakpoint(mamabear){height: 40px; padding: 0;}
     
@@ -95,5 +110,4 @@
         }
 
     }
-
 }

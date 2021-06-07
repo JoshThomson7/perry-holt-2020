@@ -544,5 +544,24 @@ footer { padding: 40px 0; position: relative; background: $secondary;
     }
 }
 
+.landing-page{
+    .inner{
+        .max__width{
+            @include breakpoint(mamabear){flex-direction: column;}
+
+            .banner__caption{
+                width: 50%;
+
+                @include breakpoint(mamabear){width: 100%;}
+
+                h1{
+                    @include breakpoint(mamabear){padding-top: 0!important;}
+                }
+
+            }
+        }
+    }
+}
+
 // Modules
 @import '../modules/gravity-forms/scss/gf';
